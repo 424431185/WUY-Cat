@@ -1,0 +1,36 @@
+/* 工程路线图 - 样式 */
+:root{
+  --bg: #fff7f8;
+  --card: #ffffff;
+  --text: #2b2b2b;
+  --muted: #6b7280;
+  --accent: #ff92b2;
+  --accent-2: #ffd1e0;
+  --shadow: rgba(255,146,178,.35);
+}
+body{
+  background: radial-gradient(900px 600px at 110% 0%, #fff0f5 0%, transparent 55%), var(--bg);
+}
+.rm-head{
+  display:flex; align-items:center; justify-content:space-between; gap:12px; padding:16px 0 6px;
+}
+.brand{ display:flex; align-items:center; gap:10px; }
+.brand .logo{ width:36px; height:36px; border-radius:10px; display:grid; place-items:center; background:linear-gradient(135deg,var(--accent),var(--accent-2)); box-shadow:0 6px 14px var(--shadow); }
+.brand .title{ font-weight:800; letter-spacing:.3px; }
+.tabs{ display:flex; align-items:center; gap:8px; }
+.tab{
+  appearance:none; border:1px solid #ffd1e0; background:#fff; color:#703d50; font-weight:700;
+  padding:10px 14px; border-radius:999px; cursor:pointer; box-shadow:0 6px 16px rgba(0,0,0,.06), 0 8px 24px var(--shadow);
+}
+.tab[aria-selected="true"]{ background:linear-gradient(135deg,var(--accent),var(--accent-2)); color:#742f45; }
+.back{ margin-left:8px; padding:10px 14px; border-radius:999px; background:#fff; color:#703d50; text-decoration:none; font-weight:700; box-shadow:0 6px 16px rgba(0,0,0,.06), 0 8px 24px var(--shadow); }
+.canvas{ margin-top:8px; }
+.chart{ background:#fff; border:1px solid #ffe3ee; border-radius:16px; padding:12px; box-shadow:0 8px 22px rgba(0,0,0,.06), 0 10px 26px var(--shadow); }
+.mindmap-wrap{ background:#fff; border:1px solid #ffe3ee; border-radius:16px; box-shadow:0 8px 22px rgba(0,0,0,.06), 0 10px 26px var(--shadow); height:70vh; min-height:420px; padding:8px; }
+@media (max-width: 760px){ .mindmap-wrap{ height:68vh; } }
+@media (min-width: 1280px){ .mindmap-wrap{ height:72vh; } }
+svg#mindmap{ width:100%; height:100%; display:block; }
+.hidden{ display:none; }
+.rm-foot{ margin:12px 2px 0; color:#7b5062; font-size:12px; text-align:center; }
+/* Mermaid 适配 */
+.mermaid{ overflow:auto; }

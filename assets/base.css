@@ -1,0 +1,30 @@
+/* 猫咪小窝 - 公共基础样式 */
+:root {
+  /* 基础配色（两页共享） */
+  --bg: #fff7f8;
+  --card: #ffffff;
+  --text: #2b2b2b;
+  --muted: #6b7280;
+  --primary: #ff92b2; /* 首页主色 / 链接色 */
+  /* 方向页增强色 */
+  --accent: #ff92b2;
+  --accent-2: #ffd1e0;
+  --shadow: rgba(255,146,178,.35);
+}
+
+/* 重置与排版 */
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  color: var(--text);
+  font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+}
+
+/* 通用链接样式 */
+a, a:visited { color: var(--primary); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* 通用容器与底部样式 */
+.wrap { width: min(1100px, 92vw); margin: 0 auto; }
+footer { text-align: center; font-size: 12px; }
