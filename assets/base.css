@@ -1,30 +1,43 @@
-/* 猫咪小窝 - 公共基础样式 */
-:root {
-  /* 基础配色（两页共享） */
-  --bg: #fff7f8;
-  --card: #ffffff;
-  --text: #2b2b2b;
-  --muted: #6b7280;
-  --primary: #ff92b2; /* 首页主色 / 链接色 */
-  /* 方向页增强色 */
-  --accent: #ff92b2;
-  --accent-2: #ffd1e0;
-  --shadow: rgba(255,146,178,.35);
-}
-
-/* 重置与排版 */
-* { box-sizing: border-box; }
-html, body { height: 100%; }
-body {
+/* 基础样式 - 猫咪小窝工程路线图 */
+* {
   margin: 0;
-  color: var(--text);
-  font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* 通用链接样式 */
-a, a:visited { color: var(--primary); text-decoration: none; }
-a:hover { text-decoration: underline; }
+body {
+  font-family: 'Noto Serif SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  color: #333;
+}
 
-/* 通用容器与底部样式 */
-.wrap { width: min(1100px, 92vw); margin: 0 auto; }
-footer { text-align: center; font-size: 12px; }
+.wrap {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* 按钮基础样式 */
+button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  font-family: inherit;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  transform: translateY(-2px);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+/* 链接基础样式 */
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s ease;
+}

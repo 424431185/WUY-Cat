@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Android 学习路线</title>
+  <link rel="stylesheet" href="../../treant-js-master/Treant.css" />
+  <link rel="stylesheet" href="./roadmap.css" />
+</head>
+<body>
+  <section class="hero reveal">
+    <div class="hero-content">
+      <h1 class="hero-title">Android开发学习指南</h1>
+      <div class="cards">
+        <button class="card-btn" data-stage="1">阶段一<br>基础入门</button>
+        <button class="card-btn" data-stage="2">阶段二<br>核心组件</button>
+        <button class="card-btn" data-stage="3">阶段三<br>界面导航</button>
+        <button class="card-btn" data-stage="4">阶段四<br>架构数据</button>
+        <button class="card-btn" data-stage="5">阶段五<br>测试发布</button>
+      </div>
+      
+      <main>
+        <section id="stage-1" class="stage" style="display:none;">
+          <div id="tree-1" class="tree"></div>
+        </section>
+        <section id="stage-2" class="stage" style="display:none;">
+          <div id="tree-2" class="tree"></div>
+        </section>
+        <section id="stage-3" class="stage" style="display:none;">
+          <div id="tree-3" class="tree"></div>
+        </section>
+        <section id="stage-4" class="stage" style="display:none;">
+          <div id="tree-4" class="tree"></div>
+        </section>
+        <section id="stage-5" class="stage" style="display:none;">
+          <div id="tree-5" class="tree"></div>
+        </section>
+      </main>
+    </div>
+  </section>
+
+  <section class="faq reveal">
+    <h2>常见问题解答（FAQ）</h2>
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">Android开发是一个好职业吗？</button>
+      <div class="faq-a">是的，Android开发是移动开发领域最热门的职业之一。Android 占据全球智能手机市场约 70% 的份额，拥有庞大的用户基础和生态系统。Android 开发人员需求持续旺盛，薪资待遇优厚，职业发展路径多样（可转向架构师、技术专家、跨平台开发等）。随着 Jetpack Compose 等现代化工具的普及，Android 开发体验不断提升。</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">如何准备Android开发面试？</button>
+      <div class="faq-a">
+        <p>准备 Android 面试需要全面准备技术栈和项目经验，建议关注以下方面：</p>
+        <ol>
+          <li><strong>Kotlin 语言</strong>：熟练掌握 Kotlin 语法、协程、Flow 等核心特性，理解与 Java 的互操作性。</li>
+          <li><strong>Android 基础</strong>：深入理解四大组件（Activity、Service、Broadcast Receiver、Content Provider）、生命周期、Intent。</li>
+          <li><strong>Jetpack 组件</strong>：熟悉 ViewModel、LiveData、Room、Navigation、DataStore 等 Jetpack 库的使用。</li>
+          <li><strong>UI 开发</strong>：掌握传统 View 系统和 Jetpack Compose，理解布局优化和自定义 View。</li>
+          <li><strong>架构模式</strong>：熟悉 MVVM、MVI、Clean Architecture，理解依赖注入（Hilt/Koin）。</li>
+          <li><strong>网络与数据</strong>：掌握 Retrofit、OkHttp、Room 数据库、数据持久化方案。</li>
+          <li><strong>性能优化</strong>：了解内存优化、启动优化、渲染优化、APK 瘦身等技巧。</li>
+          <li><strong>项目经验</strong>：准备 1-2 个完整的 Android 项目，能够清晰描述架构设计、技术选型和难点攻克。</li>
+        </ol>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">Android 与 iOS 开发有何不同？</button>
+      <div class="faq-a">Android 使用 Kotlin/Java 语言，支持多种设备厂商和屏幕尺寸，开发环境为 Android Studio，应用通过 Google Play 和第三方商店分发；iOS 使用 Swift/Objective-C，仅支持苹果设备，开发环境为 Xcode，应用通过 App Store 分发。Android 的市场份额更大，设备多样性带来兼容性挑战；iOS 的用户付费意愿更高，生态更封闭但统一。技术栈方面，Android 有 Jetpack Compose，iOS 有 SwiftUI；两者都在向声明式 UI 发展。</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">Android 开发人员的职责是什么？</button>
+      <div class="faq-a">Android 开发人员的主要工作包括：开发和维护 Android 应用（原生或混合）、设计用户界面与交互体验、实现业务逻辑与数据处理、集成第三方 SDK 和服务、优化应用性能（启动速度、内存、电量）、修复 Bug 和崩溃问题、编写单元测试和 UI 测试、参与代码审查与技术讨论、适配不同设备和 Android 版本、发布应用到应用商店、与产品、设计、后端团队协作。</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">如何成为 Android 开发人员？</button>
+      <div class="faq-a">
+        <p>建议按以下路径系统学习，逐步构建 Android 开发能力：</p>
+        <ol>
+          <li><strong>Kotlin 语言（1-2 个月）</strong>：学习 Kotlin 基础语法、面向对象、Lambda、协程等核心特性。</li>
+          <li><strong>Android 基础（2-3 个月）</strong>：学习 Android Studio、四大组件、生命周期、布局系统、资源管理。</li>
+          <li><strong>UI 开发（1-2 个月）</strong>：掌握 RecyclerView、ConstraintLayout、Material Design、Jetpack Compose。</li>
+          <li><strong>Jetpack 组件（2-3 个月）</strong>：学习 ViewModel、LiveData、Room、Navigation、WorkManager。</li>
+          <li><strong>架构与数据（2-3 个月）</strong>：学习 MVVM 架构、Retrofit 网络库、依赖注入（Hilt）、数据持久化。</li>
+          <li><strong>进阶技能（持续学习）</strong>：学习性能优化、测试、CI/CD、Firebase 集成、Google Play 发布。</li>
+          <li><strong>实战项目</strong>：完成 2-3 个完整的 Android 应用（如新闻阅读器、任务管理、社交应用），构建作品集。</li>
+        </ol>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">成为 Android 开发人员需要多长时间？</button>
+      <div class="faq-a">
+        <p>学习时间因个人背景和投入程度而异，以下是一般时间线：</p>
+        <ul>
+          <li><strong>入门级（6-9 个月）</strong>：从零基础到掌握 Kotlin、Android 基础、UI 开发，能够独立开发简单的应用，具备求职初级岗位的能力。建议每天投入 4-6 小时。</li>
+          <li><strong>中级水平（1-2 年）</strong>：在实际工作中积累经验，熟练掌握 Jetpack 组件和架构模式，能够独立完成中等复杂度的应用开发。</li>
+          <li><strong>高级/资深（3-5 年）</strong>：具备架构设计能力，掌握性能优化、自定义 View、模块化等高级话题，能够带领团队解决复杂技术问题。</li>
+        </ul>
+        <p><strong>关键因素</strong>：学习效率、项目经验、代码质量、对 Android 生态的理解以及解决问题的能力都会影响成长速度。</p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">Android 开发人员的薪水是多少？</button>
+      <div class="faq-a">薪资因地区、经验和公司规模而异。国内一线城市（北上广深）：初级 12K-20K/月，中级 20K-35K/月，高级 35K-60K/月，资深/架构师可达 60K 以上。二三线城市薪资约为一线城市的 70%-85%。互联网大厂（阿里、腾讯、字节、美团）、游戏公司和金融科技公司通常有更高的薪资水平，并提供股权激励。移动开发人员（尤其是同时掌握 Android 和 iOS 或跨平台技术的）市场需求旺盛，薪资竞争力强。</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">我应该学习 Android 路线图上列出的所有内容吗？</button>
+      <div class="faq-a">不必全部掌握。路线图提供的是完整的知识体系，建议：① 优先掌握阶段一到阶段三的核心内容（Kotlin、四大组件、UI 开发、Jetpack），这是 Android 开发的基础；② 阶段四的架构和数据处理是重点，需要通过项目实践巩固；③ 阶段五的测试和发布内容可在工作中按需学习；④ 某些高级主题（如自定义 View、性能优化）可在有一定经验后再深入；⑤ 持续关注 Android 新技术（如 Jetpack Compose、Kotlin Multiplatform）。重要的是先打好基础，再逐步扩展技能深度。</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">什么是 Jetpack Compose？</button>
+      <div class="faq-a">Jetpack Compose 是 Google 推出的现代化 Android UI 工具包，采用声明式编程范式。与传统的 XML 布局不同，Compose 使用 Kotlin 代码构建 UI，通过组合函数（Composable）描述界面，状态变化时自动更新 UI。核心优势包括：① 代码更简洁，减少样板代码；② 更好的预览和调试体验；③ 与 Kotlin 深度集成，支持协程和 Flow；④ 更容易实现复杂动画和交互；⑤ 官方推荐的新 UI 方案。Jetpack Compose 正在逐步取代传统 View 系统，是 Android 开发的未来方向。</div>
+    </div>
+  </section>
+
+  <script src="../../treant-js-master/vendor/raphael.js"></script>
+  <script src="../../treant-js-master/Treant.js"></script>
+  <script src="./android.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function(){
+      if (window.RenderAndroidRoadmap) window.RenderAndroidRoadmap();
+      if (window.EnhanceAndroidPage) window.EnhanceAndroidPage();
+    });
+  </script>
+</body>
+</html>

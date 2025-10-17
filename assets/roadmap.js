@@ -1,66 +1,51 @@
-// 路线图页面逻辑：Markmap 思维导图 + Tab 切换 + URL 参数
-(function(){
-  let mmInstance = null;
-
-  function getQuery(key){
-    const u = new URL(window.location.href);
-    return u.searchParams.get(key);
-  }
-
-  function currentMarkdown(tab){
-    const id = tab === 'be' ? 'md-be' : 'md-fe';
-    const el = document.getElementById(id);
-    return el ? el.textContent : '# 无内容\n';
-  }
-
-  function renderMindmap(tab){
-    const md = currentMarkdown(tab);
-    const svg = document.getElementById('mindmap');
-    if (!window.markmap || !svg) return;
-
-    // 清空画布
-    while (svg.firstChild) svg.removeChild(svg.firstChild);
-
-    const { Transformer, Markmap } = window.markmap;
-    const transformer = new Transformer();
-    const { root } = transformer.transform(md);
-
-    mmInstance = Markmap.create(svg, {
-      autoFit: true,
-      duration: 300,
-      color: (n) => undefined
-    }, root);
-  }
-
-  function switchTab(tab){
-    const tabs = document.querySelectorAll('.tab');
-    tabs.forEach(t => t.setAttribute('aria-selected', String(t.dataset.tab === tab)));
-    renderMindmap(tab);
-  }
-
-  function onResize(){
-    // 让思维导图自适应容器
-    if (mmInstance && mmInstance.fit) mmInstance.fit();
-  }
-
-  // 事件：Tab 切换
-  document.addEventListener('click', function(e){
-    const btn = e.target.closest('.tab');
-    if(btn){
-      switchTab(btn.dataset.tab);
+// 路线图页面交互逻辑
+(function() {
+  // 标签页切换功能
+  const tabs = document.querySelectorAll('.tab');
+  const canvas = document.querySelector('.canvas');
+  
+  tabs.forEach(tab => {
+    tab.addEventListener('click', function() {
+      // 更新选中状态
+      tabs.forEach(t => t.setAttribute('aria-selected', 'false'));
+      this.setAttribute('aria-selected', 'true');
+      
+      // 获取当前选中的标签
+      const selectedTab = this.getAttribute('data-tab');
+      
+      // 根据选中的标签显示对应的思维导图
+      const mdSource = document.getElementById(`md-${selectedTab}`);
+      if (mdSource) {
+        // 清空并重新渲染思维导图
+        const mindmapSvg = document.getElementById('mindmap');
+        if (mindmapSvg && window.markmap) {
+          // 使用 markmap 渲染
+          const { Markmap } = window.markmap;
+          const mm = Markmap.create(mindmapSvg);
+          mm.setData(window.markmap.transform(mdSource.textContent));
+          mm.fit();
+        }
+      }
+    });
+  });
+  
+  // 页面加载时渲染默认的思维导图（前端工程）
+  window.addEventListener('load', function() {
+    const defaultTab = document.querySelector('.tab[aria-selected="true"]');
+    if (defaultTab) {
+      const selectedTab = defaultTab.getAttribute('data-tab');
+      const mdSource = document.getElementById(`md-${selectedTab}`);
+      
+      if (mdSource) {
+        const mindmapSvg = document.getElementById('mindmap');
+        if (mindmapSvg && window.markmap) {
+          const { Markmap } = window.markmap;
+          const mm = Markmap.create(mindmapSvg);
+          mm.setData(window.markmap.transform(mdSource.textContent));
+          mm.fit();
+        }
+      }
     }
   });
-  window.addEventListener('resize', onResize);
-
-  // 初始化
-  const init = function(){
-    const initTab = getQuery('tab') || 'fe';
-    switchTab(initTab);
-  };
-
-  if (window.markmap) {
-    init();
-  } else {
-    window.addEventListener('load', init, { once: true });
-  }
+  
 })();

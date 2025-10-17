@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Data Analyst 学习路线</title>
+  <link rel="stylesheet" href="../../treant-js-master/Treant.css" />
+  <link rel="stylesheet" href="./roadmap.css" />
+</head>
+<body>
+  <section class="hero reveal">
+    <div class="hero-content">
+      <h1 class="hero-title">数据分析师学习指南</h1>
+      <div class="cards">
+        <button class="card-btn" data-stage="1">阶段一<br>基础入门</button>
+        <button class="card-btn" data-stage="2">阶段二<br>编程与工具</button>
+        <button class="card-btn" data-stage="3">阶段三<br>数据处理</button>
+        <button class="card-btn" data-stage="4">阶段四<br>分析可视化</button>
+        <button class="card-btn" data-stage="5">阶段五<br>高级应用</button>
+      </div>
+      
+      <main>
+        <section id="stage-1" class="stage" style="display:none;">
+          <div id="tree-1" class="tree"></div>
+        </section>
+        <section id="stage-2" class="stage" style="display:none;">
+          <div id="tree-2" class="tree"></div>
+        </section>
+        <section id="stage-3" class="stage" style="display:none;">
+          <div id="tree-3" class="tree"></div>
+        </section>
+        <section id="stage-4" class="stage" style="display:none;">
+          <div id="tree-4" class="tree"></div>
+        </section>
+        <section id="stage-5" class="stage" style="display:none;">
+          <div id="tree-5" class="tree"></div>
+        </section>
+      </main>
+    </div>
+  </section>
+
+  <section class="faq reveal">
+    <h2>常见问题解答（FAQ）</h2>
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">数据分析师是一个好职业吗？</button>
+      <div class="faq-a">是的，数据分析师是当前最热门的职业之一。在数字化转型的时代，几乎所有行业都需要通过数据驱动决策，数据分析师需求持续增长。该职业门槛相对适中，薪资待遇优厚，职业发展路径清晰（可转向数据科学家、业务分析专家、数据产品经理等），且工作内容多样，能够直接影响业务决策。</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">如何准备数据分析师面试？</button>
+      <div class="faq-a">
+        <p>准备数据分析师面试需要全面准备技术和业务能力，建议关注以下方面：</p>
+        <ol>
+          <li><strong>技术基础</strong>：熟练掌握 SQL（多表查询、窗口函数、优化）、Excel（透视表、高级函数）、Python（Pandas、数据处理）。</li>
+          <li><strong>统计知识</strong>：理解描述统计、假设检验、回归分析、A/B 测试等核心概念，能够解释统计结果。</li>
+          <li><strong>可视化能力</strong>：熟悉 Tableau/Power BI 等工具，能够设计清晰的数据看板和报告。</li>
+          <li><strong>业务理解</strong>：了解目标公司的行业和业务模式，准备相关的数据分析案例。</li>
+          <li><strong>项目案例</strong>：准备 2-3 个完整的数据分析项目，能够清晰描述问题、分析方法、洞察和影响。</li>
+          <li><strong>SQL 刷题</strong>：通过 LeetCode、HackerRank 等平台练习 SQL 题目，提升查询编写速度。</li>
+          <li><strong>行为面试</strong>：准备 STAR 格式的故事，展示解决问题、团队协作和影响力。</li>
+        </ol>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">数据分析师与数据科学家有何不同？</button>
+      <div class="faq-a">数据分析师侧重于解答业务问题，使用 SQL、Excel、BI 工具进行数据提取、清洗、分析和可视化，输出报表和洞察；数据科学家则更侧重于构建预测模型和算法，需要深厚的机器学习、统计学和编程能力（Python/R），解决更复杂的问题。数据分析师是数据科学家的入门阶段，技术要求相对较低，更注重业务理解和沟通能力。许多数据分析师在积累经验后会转型为数据科学家。</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">数据分析师的职责是什么？</button>
+      <div class="faq-a">数据分析师的主要工作包括：数据采集与清洗（从数据库提取数据、处理缺失值和异常值）、探索性数据分析（发现数据模式和趋势）、构建数据看板与报表（使用 BI 工具可视化关键指标）、统计分析（假设检验、A/B 测试、回归分析）、业务洞察输出（撰写分析报告，提出优化建议）、指标体系搭建（定义和监控核心业务指标）、跨部门协作（与产品、运营、市场等团队合作，支持数据驱动决策）。</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">如何成为数据分析师？</button>
+      <div class="faq-a">
+        <p>建议按以下路径系统学习，逐步构建数据分析能力：</p>
+        <ol>
+          <li><strong>数学与统计基础（1-2 个月）</strong>：学习描述统计、概率论、假设检验等核心概念。</li>
+          <li><strong>Excel 与 SQL（1-2 个月）</strong>：熟练掌握 Excel 数据分析功能，学习 SQL 数据查询与处理。</li>
+          <li><strong>Python 编程（2-3 个月）</strong>：学习 Python 基础和 Pandas 库，掌握数据清洗和处理技能。</li>
+          <li><strong>数据可视化（1-2 个月）</strong>：学习 Tableau/Power BI，掌握图表设计和仪表板构建。</li>
+          <li><strong>统计分析与 A/B 测试（1-2 个月）</strong>：深入学习统计方法，了解实验设计和因果推断。</li>
+          <li><strong>业务分析（持续学习）</strong>：学习指标体系、用户行为分析、运营分析等业务知识。</li>
+          <li><strong>实战项目</strong>：完成 2-3 个数据分析项目（如用户留存分析、销售预测、客户细分），构建作品集。</li>
+          <li><strong>求职准备</strong>：刷 SQL 题、准备项目案例、参加 Kaggle 竞赛，积累实战经验。</li>
+        </ol>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">成为数据分析师需要多长时间？</button>
+      <div class="faq-a">
+        <p>学习时间因个人背景和投入程度而异，以下是一般时间线：</p>
+        <ul>
+          <li><strong>入门级（6-9 个月）</strong>：从零基础到掌握 SQL、Excel、Python 和基础统计知识，能够完成简单的数据分析任务，具备求职初级岗位的能力。建议每天投入 3-5 小时。</li>
+          <li><strong>中级水平（1-2 年）</strong>：在实际工作中积累经验，熟练掌握数据分析工具和方法，能够独立完成业务分析项目并提出洞察。</li>
+          <li><strong>高级/资深（3-5 年）</strong>：具备深厚的业务理解和分析能力，掌握机器学习基础，能够设计复杂的分析框架并推动业务增长。</li>
+        </ul>
+        <p><strong>关键因素</strong>：学习效率、项目经验、业务理解、沟通能力以及对数据的敏感度都会影响成长速度。</p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">数据分析师的薪水是多少？</button>
+      <div class="faq-a">薪资因地区、经验和公司规模而异。国内一线城市（北上广深）：初级 10K-18K/月，中级 18K-30K/月，高级 30K-50K/月，资深/专家可达 50K 以上。二三线城市薪资约为一线城市的 70%-80%。互联网大厂（阿里、腾讯、字节、美团）通常有更高的薪资水平，并提供股权激励。金融、咨询、电商行业对数据分析师需求旺盛，薪资待遇也相对较高。</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">我应该学习数据分析路线图上列出的所有内容吗？</button>
+      <div class="faq-a">不必全部掌握。路线图提供的是完整的知识体系，建议：① 优先掌握阶段一到阶段三的核心内容（SQL、Python、Excel、统计基础），这是数据分析师的必备技能；② 阶段四的可视化和业务分析是重点，需要通过项目实践巩固；③ 阶段五的机器学习和大数据内容可在有一定经验后按需学习；④ 根据目标行业和岗位调整学习重点（如金融行业更注重统计，互联网更注重用户行为分析）；⑤ 持续学习新工具和方法，保持技术敏感度。重要的是先打好基础，再逐步扩展技能深度。</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">什么是 A/B 测试？</button>
+      <div class="faq-a">A/B 测试是一种对照实验方法，用于比较两个或多个版本的效果，从而做出数据驱动的决策。核心流程包括：① 确定测试目标和指标（如点击率、转化率）；② 设计实验方案：将用户随机分为对照组（A）和实验组（B）；③ 运行实验：让两组用户体验不同版本，收集数据；④ 统计分析：使用假设检验判断差异是否显著；⑤ 得出结论：根据结果决定是否采用新版本。A/B 测试广泛应用于产品优化、营销活动、页面设计等场景，是数据分析师的重要技能。</div>
+    </div>
+  </section>
+
+  <script src="../../treant-js-master/vendor/raphael.js"></script>
+  <script src="../../treant-js-master/Treant.js"></script>
+  <script src="./data-analyst.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function(){
+      if (window.RenderDataAnalystRoadmap) window.RenderDataAnalystRoadmap();
+      if (window.EnhanceDataAnalystPage) window.EnhanceDataAnalystPage();
+    });
+  </script>
+</body>
+</html>

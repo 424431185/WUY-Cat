@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Frontend 学习路线</title>
+  <link rel="stylesheet" href="../../treant-js-master/Treant.css" />
+  <link rel="stylesheet" href="./roadmap.css" />
+</head>
+<body>
+  <section class="hero reveal">
+    <div class="hero-content">
+      <h1 class="hero-title">前端学习指南</h1>
+      <div class="cards">
+        <button class="card-btn" data-stage="1">阶段一<br>基础入门</button>
+        <button class="card-btn" data-stage="2">阶段二<br>工程与框架</button>
+        <button class="card-btn" data-stage="3">阶段三<br>质量与进阶</button>
+        <button class="card-btn" data-stage="4">阶段四<br>上线与运维</button>
+        <button class="card-btn" data-stage="5">阶段五<br>职业与软技能</button>
+      </div>
+      
+      <main>
+        <section id="stage-1" class="stage" style="display:none;">
+          <div id="tree-1" class="tree"></div>
+        </section>
+        <section id="stage-2" class="stage" style="display:none;">
+          <div id="tree-2" class="tree"></div>
+        </section>
+        <section id="stage-3" class="stage" style="display:none;">
+          <div id="tree-3" class="tree"></div>
+        </section>
+        <section id="stage-4" class="stage" style="display:none;">
+          <div id="tree-4" class="tree"></div>
+        </section>
+        <section id="stage-5" class="stage" style="display:none;">
+          <div id="tree-5" class="tree"></div>
+        </section>
+      </main>
+    </div>
+  </section>
+
+  <section class="faq reveal">
+    <h2>常见问题解答（FAQ）</h2>
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">前端开发人员是一个好职业吗？</button>
+      <div class="faq-a">是的，前端开发是当前 IT 行业需求量大、发展前景好的职业之一。市场需求持续增长，薪资待遇优厚，且技能可迁移性强。随着互联网和移动应用的普及，前端开发人员在各行各业都有广阔的就业机会。</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">如何准备前端开发人员面试？</button>
+      <div class="faq-a">
+        <p>如果您想准备前端开发人员面试，请确保您已经掎理了您将使用的技术的基础知识。</p>
+        <p>虽然这是您可以为前端职位生涯做的最有影响力的事情之一，但也要考虑关注以下几点：</p>
+        <ol>
+          <li><strong>掌握基础知识</strong>：确保对 HTML、CSS 和 JavaScript 有深入的理解，因为它们对于前端开发人员的角色至关重要。</li>
+          <li><strong>练习编码</strong>：通过 LeetCode 等平台上的迷你项目或编码挑战来提高您的技能，尤其是那些专注于前端开发的平台。使用这些技能创建 <a href="#" target="_blank">Web 开发人员组合</a>可以在很多方面为您提供帮助。</li>
+          <li><strong>学习现代框架</strong>：熟悉 React、Angular 或 Vue.js 等流行框架。</li>
+          <li><strong>了解您的工具</strong>：熟悉版本控制系统、测试和构建工具，这些工具对于包括前端在内的所有类型的开发都至关重要。</li>
+          <li><strong>了解 UI/UX 原则</strong>：了解可访问性、响应式设计和直观的界面以频颗而出。</li>
+          <li><strong>研究公司</strong>：通过了解公司的业务和产品来表现出兴趣。</li>
+          <li><strong>增强沟通技巧</strong>：良好的沟通技巧对于在任何角色中取得成功都至关重要，因此请务必努力提高这些技巧。</li>
+        </ol>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">前端开发与后端开发有何不同？</button>
+      <div class="faq-a">前端开发侧重用户界面与交互体验，主要使用 HTML/CSS/JavaScript 及相关框架，工作成果直接呈现给用户；后端开发侧重服务器逻辑、数据库与 API 设计，使用 Java/Python/Node.js 等语言，处理业务逻辑与数据存储。两者协作完成完整的 Web 应用。</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">前端开发人员的职位是什么？</button>
+      <div class="faq-a">前端开发人员负责构建用户可见的网页界面和交互功能，主要工作包括：实现设计稿、优化页面性能、确保跨浏览器兼容、开发响应式布局、与后端协作对接 API、维护前端代码库、参与技术选型与架构设计等。</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">如何成为前端开发人员？</button>
+      <div class="faq-a">
+        <p>建议按以下路径学习，每个阶段都需要深入掌握：</p>
+        <ol>
+          <li><strong>掌握基础知识</strong>：学习 HTML、CSS 和 JavaScript 的核心概念（预计 2-3 个月）。确保对语义化标签、响应式布局、ES6+ 特性有深入理解。</li>
+          <li><strong>学习主流框架</strong>：选择 React 或 Vue.js 进行系统学习（1-2 个月）。掌握组件化开发、状态管理和路由系统。</li>
+          <li><strong>工程化工具</strong>：熟悉 Git、Webpack/Vite、npm/yarn 等工具（1 个月）。学习代码版本控制和构建流程。</li>
+          <li><strong>性能优化与测试</strong>：学习性能优化技巧、单元测试和 E2E 测试（1-2 个月）。</li>
+          <li><strong>实战项目</strong>：完成 2-3 个真实项目，建立个人作品集，展示您的技能。</li>
+          <li><strong>持续学习</strong>：关注行业动态，学习新技术和最佳实践，保持竞争力。</li>
+        </ol>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">成为前端开发人员需要多长时间？</button>
+      <div class="faq-a">
+        <p>学习时间因个人背景和投入程度而异，但以下是一般时间线：</p>
+        <ul>
+          <li><strong>入门级（6-12 个月）</strong>：从零基础到掌握基本技能，能够求职初级岗位。建议每天投入 2-4 小时，配合项目练习。</li>
+          <li><strong>中级水平（1-2 年）</strong>：在实际工作中积累经验，深入掌握框架和工程化工具，能够独立完成项目。</li>
+          <li><strong>高级/资深（3-5 年）</strong>：具备架构设计能力，掌握性能优化和技术选型，能够带领团队和解决复杂问题。</li>
+        </ul>
+        <p><strong>关键因素</strong>：学习效率、项目经验、持续实践和代码质量都会影响成长速度。</p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">前端开发人员的薪水是多少？</button>
+      <div class="faq-a">薪资因地区、经验和公司规模而异。国内一线城市：初级 8K-15K/月，中级 15K-30K/月，高级 30K-50K/月，资深/专家级可达 50K 以上。二三线城市薪资约为一线城市的 60%-80%。大厂、外企和独角兽公司通常有更高的薪资水平与股权激励。</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">我应该学习前端路线图上列出的所有内容吗？</button>
+      <div class="faq-a">不必全部掌握。路线图提供的是完整的知识体系，建议：① 优先掌握阶段一和阶段二的核心内容；② 根据求职方向选择性深入（如偏重性能优化、可视化或移动端）；③ 某些高级主题（如微前端、SSR）可在工作中按需学习；④ 持续关注行业动态，保持学习热情即可。</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">什么是前端框架？</button>
+      <div class="faq-a">前端框架是帮助开发者高效构建用户界面的工具库或架构，提供了组件化、状态管理、路由等功能。主流框架包括：<code>React</code>（Facebook 出品，组件化思想）、<code>Vue</code>（渐进式框架，易上手）、<code>Angular</code>（Google 出品，企业级方案）。框架能显著提升开发效率、代码可维护性和团队协作能力。</div>
+    </div>
+  </section>
+
+  <script src="../../treant-js-master/vendor/raphael.js"></script>
+  <script src="../../treant-js-master/Treant.js"></script>
+  <script src="./frontend.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function(){
+      if (window.RenderFrontendRoadmap) window.RenderFrontendRoadmap();
+      if (window.EnhanceFrontendPage) window.EnhanceFrontendPage();
+    });
+  </script>
+  <script type="text/javascript" src="https://robot.chaoxing.com/sdk/CxRobotSdkJs.js"></script>
+<script type="text/javascript">
+    CxRobotSdkJs.init("https://robot.chaoxing.com/embedChat?unitId=333173&robotId=c507a038371f40fea290b460be8fe2a6&groupId=0", "47a8ef5dd4e93c34458f632e57fcf055");
+</script>
+</body>
+</html>

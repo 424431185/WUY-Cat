@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>game-developer 学习路线</title>
+  <link rel="stylesheet" href="../../treant-js-master/Treant.css" />
+  <link rel="stylesheet" href="../full-stack/roadmap.css" />
+</head>
+<body>
+  <section class="hero reveal">
+    <div class="hero-content">
+      <h1 class="hero-title">游戏开发 学习指南</h1>
+      <div class="cards">
+        <button class="card-btn" data-stage="1">阶段一<br>计算基础与工具链</button>
+        <button class="card-btn" data-stage="2">阶段二<br>引擎架构与 Runtime</button>
+        <button class="card-btn" data-stage="3">阶段三<br>游戏系统与 AI 物理</button>
+        <button class="card-btn" data-stage="4">阶段四<br>图形渲染与优化上线</button>
+        <button class="card-btn" data-stage="5">阶段五<br>项目化与职业成长</button>
+      </div>
+      
+      <main>
+        <section id="stage-1" class="stage" style="display:none;">
+          <div id="tree-1" class="tree"></div>
+        </section>
+        <section id="stage-2" class="stage" style="display:none;">
+          <div id="tree-2" class="tree"></div>
+        </section>
+        <section id="stage-3" class="stage" style="display:none;">
+          <div id="tree-3" class="tree"></div>
+        </section>
+        <section id="stage-4" class="stage" style="display:none;">
+          <div id="tree-4" class="tree"></div>
+        </section>
+        <section id="stage-5" class="stage" style="display:none;">
+          <div id="tree-5" class="tree"></div>
+        </section>
+      </main>
+    </div>
+  </section>
+
+  <section class="faq reveal">
+    <h2>常见问题解答（FAQ）</h2>
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">游戏开发人员是一个好职业吗？</button>
+      <div class="faq-a">是。行业长期稳定且多元（主机/PC/移动/VR/独立游戏），岗位细分清晰（玩法/客户端/引擎/图形/音频/工具链/线上运维）。可在技术与创意的交叉处获得成就感，亦可横向转型（图形、实时渲染、引擎工具、交互设计）。</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">如何准备游戏开发人员面试？</button>
+      <div class="faq-a">
+        <p>围绕基础、引擎与系统设计三条线系统准备，并结合实战复盘与行为面试：</p>
+        <ul>
+          <li><strong>计算基础</strong>：线代/几何/三角、DSA、OS/并发、网络。</li>
+          <li><strong>引擎与架构</strong>：Unity/Unreal/自研、ECS/事件系统/资源管线、平台接口与线程/Job。</li>
+          <li><strong>系统设计</strong>：渲染管线/PBR、物理（碰撞/刚体/数值稳定）、AI（FSM/BT/寻路）、性能与内存。</li>
+          <li><strong>项目沉淀</strong>：可运行 Demo、Profiling 报告、帧率与内存指标对比。</li>
+          <li><strong>行为面试</strong>：需求澄清、调参与迭代、跨职能协作与复盘。</li>
+        </ul>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">前端/后端与游戏开发的分工有什么不同？</button>
+      <div class="faq-a">游戏客户端侧重渲染/交互/动画/物理与平台适配；服务端侧重会话/同步/匹配/排行/经济系统与稳定运营。双方通过协议与状态同步（帧同步/状态同步）协同，保障可玩性与稳定性。</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">游戏开发的主要职责是什么？</button>
+      <div class="faq-a">实现玩法与系统（输入/相机、UI/HUD、关卡）、稳定 Game Loop；集成物理/AI/动画/音频与资源序列化；优化渲染与性能（Draw Call、LOD/裁剪、资产治理）以达标帧率；建设构建/打包、CI/CD 与自动化回归，支持多平台发布；与策划/美术/音频/QA/运营协作迭代。</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">如何成为游戏开发人员？</button>
+      <div class="faq-a">
+        <p>建议路径：</p>
+        <ol>
+          <li><strong>基础</strong>：线代/几何/三角、C/C++/C#、数据结构与算法。</li>
+          <li><strong>引擎</strong>：Unity/Unreal 项目骨架、输入与事件、资源管线与热更、ECS/组件化。</li>
+          <li><strong>图形</strong>：图形 API（GL/DX/Vulkan/Metal）、着色器（GLSL/HLSL）、PBR/后处理。</li>
+          <li><strong>系统</strong>：物理/AI/动画/音频、存档与版本兼容、同步策略。</li>
+          <li><strong>工程化</strong>：Git/分支、CMake/Gradle、CI/CD、Profiler/内存工具、自动化回归。</li>
+          <li><strong>项目</strong>：2–3 个可运行 Demo，覆盖不同平台或题材并沉淀复盘与指标。</li>
+        </ol>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">成为合格游戏开发需要多长时间？</button>
+      <div class="faq-a">
+        <p>常见时间线：</p>
+        <ul>
+          <li><strong>入门（6–12 个月）</strong>：掌握引擎与语言，做出可玩 Demo。</li>
+          <li><strong>中级（1–2 年）</strong>：能独立负责系统模块，具备 Profiling 与优化能力。</li>
+          <li><strong>高级/资深（3–5 年）</strong>：跨平台性能治理、子系统架构/引擎改造、带领小团队。</li>
+        </ul>
+        <p><strong>关键因素</strong>：数理基础、项目深度、性能与稳定性意识、跨职能协作能力。</p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">我应学习游戏路线图上的所有内容吗？</button>
+      <div class="faq-a">不必一次性吃透。先打牢“数学 + 语言 + 引擎基础”，再按方向选择性深入（玩法/图形/引擎/网络/工具），保留拓展位（音频/动画/数据驱动与热更），并以迭代与复盘形成闭环。</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">游戏项目常见性能优化路线？</button>
+      <div class="faq-a">Profiling（帧时间拆分：CPU/GPU）→ 找热点 → 渲染（合批/实例化、裁剪/LOD、材质与贴图治理、带宽与缓存命中）+ 逻辑（算法/数据布局、对象池、Job 并行、脚本热点下沉）+ 资产（压缩/流式加载、内存水位与碎片治理）；以基线与自动回归脚本验证成效。</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">游戏开发安全与线上稳定的关键点？</button>
+      <div class="faq-a">协议与同步安全（输入校验、反作弊、回放与校验）；资源与热更（包体签名、版本兼容、完整性校验、灰度与回滚）；可观测（客户端埋点+崩溃收集、服务端指标/日志/追踪、告警与值班）；隐私与合规（日志脱敏、数据最小化、地区法务与商店规范）。</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">如何在作品与面试中体现游戏开发价值？</button>
+      <div class="faq-a">可运行 Demo（安装包或商店链接）+ 技术亮点（渲染/AI/物理/工具）；指标化成果（FPS/发热/内存/包体/启动时长/崩溃率等前后对比）；技术复盘（难点、权衡、优化路径、回归脚本）；开源或技术文章（着色器/编辑器扩展、GDC/SIGGRAPH 笔记）。</div>
+    </div>
+  </section>
+
+  <script src="../../treant-js-master/vendor/raphael.js"></script>
+  <script src="../../treant-js-master/Treant.js"></script>
+  <script src="./game-developer.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function(){
+      if (window.RenderFrontendRoadmap) window.RenderFrontendRoadmap();
+      if (window.EnhanceFrontendPage) window.EnhanceFrontendPage();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Full Stack 学习路线</title>
+  <link rel="stylesheet" href="../../treant-js-master/Treant.css" />
+  <link rel="stylesheet" href="./roadmap.css" />
+</head>
+<body>
+  <section class="hero reveal">
+    <div class="hero-content">
+      <h1 class="hero-title">全栈学习指南</h1>
+      <div class="cards">
+        <button class="card-btn" data-stage="1">阶段一<br>前端基础</button>
+        <button class="card-btn" data-stage="2">阶段二<br>前端进阶</button>
+        <button class="card-btn" data-stage="3">阶段三<br>后端开发</button>
+        <button class="card-btn" data-stage="4">阶段四<br>全栈集成</button>
+        <button class="card-btn" data-stage="5">阶段五<br>DevOps运维</button>
+      </div>
+      
+      <main>
+        <section id="stage-1" class="stage" style="display:none;">
+          <div id="tree-1" class="tree"></div>
+        </section>
+        <section id="stage-2" class="stage" style="display:none;">
+          <div id="tree-2" class="tree"></div>
+        </section>
+        <section id="stage-3" class="stage" style="display:none;">
+          <div id="tree-3" class="tree"></div>
+        </section>
+        <section id="stage-4" class="stage" style="display:none;">
+          <div id="tree-4" class="tree"></div>
+        </section>
+        <section id="stage-5" class="stage" style="display:none;">
+          <div id="tree-5" class="tree"></div>
+        </section>
+      </main>
+    </div>
+  </section>
+
+  <section class="faq reveal">
+    <h2>常见问题解答（FAQ）</h2>
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">全栈开发人员是一个好职业吗？</button>
+      <div class="faq-a">是的，全栈开发是当前 IT 行业最受欢迎的职位之一。全栈开发人员同时掌握前端和后端技术，能够独立完成整个项目，在创业公司和中小型团队中尤为抢手。随着技术栈的不断融合，全栈能力成为开发人员的核心竞争力，职业发展空间广阔，薪资待遇优厚。</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">如何准备全栈开发人员面试？</button>
+      <div class="faq-a">
+        <p>准备全栈面试需要平衡前端和后端的技能储备，建议关注以下方面：</p>
+        <ol>
+          <li><strong>前端能力</strong>：熟练掌握 HTML/CSS/JavaScript，精通至少一个主流框架（React/Vue），理解响应式设计和前端性能优化。</li>
+          <li><strong>后端能力</strong>：掌握 Node.js 或其他后端语言，熟悉数据库设计（SQL/NoSQL），能够设计和实现 RESTful API。</li>
+          <li><strong>数据库知识</strong>：熟练使用 PostgreSQL/MySQL，了解 MongoDB/Redis 等 NoSQL 数据库，掌握查询优化和索引设计。</li>
+          <li><strong>DevOps 基础</strong>：了解 Git、Docker、CI/CD 流程，能够部署和维护应用。</li>
+          <li><strong>系统设计</strong>：准备常见的全栈系统设计题（如设计社交应用、电商系统），展示端到端的架构思维。</li>
+          <li><strong>项目经验</strong>：准备 1-2 个全栈项目案例，能够清晰描述技术栈选择、前后端交互和部署流程。</li>
+          <li><strong>沟通能力</strong>：全栈开发需要与产品、设计、运维等多方协作，良好的沟通能力至关重要。</li>
+        </ol>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">全栈开发与专精前端/后端有何不同？</button>
+      <div class="faq-a">全栈开发人员需要掌握前端和后端的核心技能，能够独立完成整个应用的开发；专精前端或后端的开发人员则在各自领域有更深入的技术积累。全栈的优势在于：① 能够快速搭建原型和 MVP；② 理解整个应用架构，便于优化和调试；③ 在小团队中更具价值。劣势在于：可能在某个领域的深度不如专精人员。理想的职业路径是先全栈打基础，再根据兴趣选择深耕方向。</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">全栈开发人员的职责是什么？</button>
+      <div class="faq-a">全栈开发人员负责应用的端到端开发，主要工作包括：前端开发（用户界面、交互逻辑、状态管理）、后端开发（API 设计、业务逻辑、数据库）、数据库设计与优化、前后端集成与调试、用户认证与授权实现、部署与运维（Docker、CI/CD）、性能优化与监控、与产品和设计团队协作、技术选型与架构设计。</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">如何成为全栈开发人员？</button>
+      <div class="faq-a">
+        <p>建议按以下路径系统学习，逐步构建全栈能力：</p>
+        <ol>
+          <li><strong>前端基础（2-3 个月）</strong>：学习 HTML/CSS/JavaScript，掌握 DOM 操作和异步编程，完成静态页面和交互功能。</li>
+          <li><strong>前端框架（2-3 个月）</strong>：学习 React 或 Vue，掌握组件化开发、状态管理和路由，构建单页应用（SPA）。</li>
+          <li><strong>后端开发（2-3 个月）</strong>：学习 Node.js/Express，掌握 API 开发、数据库（PostgreSQL/MongoDB）和认证机制。</li>
+          <li><strong>全栈整合（1-2 个月）</strong>：将前后端连接，实现完整的 CRUD 应用，处理前后端数据流和错误处理。</li>
+          <li><strong>DevOps 基础（1-2 个月）</strong>：学习 Git、Docker、CI/CD，将应用部署到云平台（Vercel、Heroku、AWS）。</li>
+          <li><strong>实战项目</strong>：完成 2-3 个全栈项目（如博客系统、任务管理工具、社交应用），积累端到端的开发经验。</li>
+          <li><strong>持续学习</strong>：关注技术社区，学习新框架和工具，保持技术敏感度。</li>
+        </ol>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">成为全栈开发人员需要多长时间？</button>
+      <div class="faq-a">
+        <p>学习时间因个人背景和投入程度而异，以下是一般时间线：</p>
+        <ul>
+          <li><strong>入门级（8-12 个月）</strong>：从零基础到掌握前后端基本技能，能够开发简单的全栈应用，具备求职初级岗位的能力。建议每天投入 4-6 小时，配合项目练习。</li>
+          <li><strong>中级水平（1-2 年）</strong>：在实际工作中积累经验，熟练掌握主流技术栈，能够独立完成中等复杂度的全栈项目。</li>
+          <li><strong>高级/资深（3-5 年）</strong>：具备架构设计能力，掌握性能优化、系统扩展、微服务等高级话题，能够带领团队解决复杂技术问题。</li>
+        </ul>
+        <p><strong>关键因素</strong>：学习效率、项目经验、代码质量、对技术原理的深入理解以及解决问题的能力都会影响成长速度。</p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">全栈开发人员的薪水是多少？</button>
+      <div class="faq-a">薪资因地区、经验和公司规模而异。国内一线城市（北上广深）：初级 12K-20K/月，中级 20K-40K/月，高级 40K-70K/月，资深/架构师可达 70K 以上。二三线城市薪资约为一线城市的 70%-85%。大厂（阿里、腾讯、字节）、外企和独角兽公司通常有更高的薪资水平，并提供股权激励。全栈开发人员的薪资通常高于单一技能栈开发人员 15%-30%，因为他们能够承担更多职责。</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">我应该学习全栈路线图上列出的所有内容吗？</button>
+      <div class="faq-a">不必全部掌握。路线图提供的是完整的知识体系，建议：① 优先掌握阶段一到阶段三的核心内容，这是全栈开发的基础；② 阶段四的全栈整合是重点，需要通过项目实践巩固；③ 阶段五的 DevOps 内容可在工作中按需学习；④ 某些高级主题（如 Kubernetes、微服务）可在有一定经验后再深入；⑤ 持续学习新技术和最佳实践，保持竞争力。重要的是先打好基础，再逐步扩展技术广度和深度。</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">什么是 RESTful API？</button>
+      <div class="faq-a">RESTful API 是一种基于 REST（Representational State Transfer）架构风格的 Web API 设计规范，使用 HTTP 协议进行通信。核心原则包括：① 资源导向：每个 URL 代表一个资源；② 使用标准 HTTP 方法：GET（查询）、POST（创建）、PUT/PATCH（更新）、DELETE（删除）；③ 无状态：每个请求独立，不依赖服务器端会话；④ 统一接口：使用标准的数据格式（如 JSON）。例如：<code>GET /api/users</code> 获取用户列表，<code>POST /api/users</code> 创建用户，<code>PUT /api/users/123</code> 更新用户。RESTful API 是全栈开发中前后端通信的标准方式。</div>
+    </div>
+  </section>
+
+  <script src="../../treant-js-master/vendor/raphael.js"></script>
+  <script src="../../treant-js-master/Treant.js"></script>
+  <script src="./full-stack.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function(){
+      if (window.RenderFullStackRoadmap) window.RenderFullStackRoadmap();
+      if (window.EnhanceFullStackPage) window.EnhanceFullStackPage();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Backend 学习路线</title>
+  <link rel="stylesheet" href="../../treant-js-master/Treant.css" />
+  <link rel="stylesheet" href="./roadmap.css" />
+</head>
+<body>
+  <section class="hero reveal">
+    <div class="hero-content">
+      <h1 class="hero-title">后端学习指南</h1>
+      <div class="cards">
+        <button class="card-btn" data-stage="1">阶段一<br>基础入门</button>
+        <button class="card-btn" data-stage="2">阶段二<br>核心技术</button>
+        <button class="card-btn" data-stage="3">阶段三<br>API与质量</button>
+        <button class="card-btn" data-stage="4">阶段四<br>部署与运维</button>
+        <button class="card-btn" data-stage="5">阶段五<br>架构与进阶</button>
+      </div>
+      
+      <main>
+        <section id="stage-1" class="stage" style="display:none;">
+          <div id="tree-1" class="tree"></div>
+        </section>
+        <section id="stage-2" class="stage" style="display:none;">
+          <div id="tree-2" class="tree"></div>
+        </section>
+        <section id="stage-3" class="stage" style="display:none;">
+          <div id="tree-3" class="tree"></div>
+        </section>
+        <section id="stage-4" class="stage" style="display:none;">
+          <div id="tree-4" class="tree"></div>
+        </section>
+        <section id="stage-5" class="stage" style="display:none;">
+          <div id="tree-5" class="tree"></div>
+        </section>
+      </main>
+    </div>
+  </section>
+
+  <section class="faq reveal">
+    <h2>常见问题解答（FAQ）</h2>
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">后端开发人员是一个好职业吗？</button>
+      <div class="faq-a">是的，后端开发是当前 IT 行业核心且稳定的职业之一。后端开发负责系统的业务逻辑、数据处理和性能优化，是企业技术架构的基石。随着云计算、微服务和大数据的发展，后端开发人员的需求持续增长，职业前景广阔，薪资待遇优厚。</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">如何准备后端开发人员面试？</button>
+      <div class="faq-a">
+        <p>准备后端开发面试需要全面掌握技术栈并注重实践经验，建议关注以下方面：</p>
+        <ol>
+          <li><strong>扎实的计算机基础</strong>：深入理解操作系统、计算机网络、数据结构与算法，这些是后端面试的重点。</li>
+          <li><strong>熟练掌握编程语言</strong>：精通至少一门后端语言（如 Java、Python、Go），理解其运行机制（如 JVM、GC、协程）。</li>
+          <li><strong>数据库与缓存</strong>：熟悉 MySQL/PostgreSQL 的优化技巧，掌握 Redis 的使用场景和原理。</li>
+          <li><strong>系统设计能力</strong>：准备常见的系统设计题（如设计短链接服务、秒杀系统），展示架构思维。</li>
+          <li><strong>项目经验总结</strong>：准备 2-3 个项目案例，能够清晰描述技术选型、难点攻克和性能优化经验。</li>
+          <li><strong>算法刷题</strong>：通过 LeetCode 等平台练习中等难度算法题，提升编码能力。</li>
+          <li><strong>了解公司业务</strong>：研究目标公司的技术栈和业务方向，展示对公司的兴趣和匹配度。</li>
+        </ol>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">后端开发与前端开发有何不同？</button>
+      <div class="faq-a">后端开发侧重服务器端的业务逻辑、数据库设计、API 开发和系统性能优化，主要使用 Java、Python、Go 等语言，工作成果不直接呈现给用户；前端开发侧重用户界面与交互体验，使用 HTML/CSS/JavaScript 及框架，工作成果直接可见。后端需要关注并发、性能、安全和分布式系统，前端需要关注用户体验、浏览器兼容性和页面性能。</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">后端开发人员的职责是什么？</button>
+      <div class="faq-a">后端开发人员负责构建和维护服务器端应用，主要工作包括：设计和实现业务逻辑、开发 RESTful 或 gRPC API、设计数据库表结构与优化查询、集成缓存和消息队列、保障系统安全与性能、编写单元测试和集成测试、参与架构设计与技术选型、维护线上服务稳定性与故障排查、协助运维进行部署与监控。</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">如何成为后端开发人员？</button>
+      <div class="faq-a">
+        <p>建议按以下路径系统学习，循序渐进地掌握后端技能：</p>
+        <ol>
+          <li><strong>计算机基础（2-3 个月）</strong>：学习操作系统、计算机网络、数据结构与算法、设计模式，这是后端开发的根基。</li>
+          <li><strong>选择编程语言（2-3 个月）</strong>：根据兴趣选择 Java、Python 或 Go 作为主力语言，深入学习语法、并发编程和生态工具。</li>
+          <li><strong>Web 基础与框架（2-3 个月）</strong>：掌握 HTTP 协议、RESTful 设计，学习主流框架（如 Spring Boot、Django、Gin）。</li>
+          <li><strong>数据库与存储（1-2 个月）</strong>：系统学习 SQL、事务、索引优化，了解 Redis、MongoDB 等 NoSQL 数据库。</li>
+          <li><strong>进阶技术（3-6 个月）</strong>：学习消息队列（Kafka、RabbitMQ）、容器化（Docker、Kubernetes）、微服务架构。</li>
+          <li><strong>实战项目</strong>：完成 2-3 个真实项目（如博客系统、电商后台、IM 系统），积累项目经验。</li>
+          <li><strong>持续学习</strong>：关注技术社区（如 GitHub、掘金、InfoQ），保持对新技术的敏感度。</li>
+        </ol>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">成为后端开发人员需要多长时间？</button>
+      <div class="faq-a">
+        <p>学习时间因个人背景和投入程度而异，以下是一般时间线：</p>
+        <ul>
+          <li><strong>入门级（6-12 个月）</strong>：从零基础到掌握基本技能，能够开发简单的 Web 应用和 API，具备求职初级岗位的能力。建议每天投入 3-5 小时，配合项目练习。</li>
+          <li><strong>中级水平（1-2 年）</strong>：在实际工作中积累经验，熟练掌握数据库优化、缓存使用、消息队列，能够独立负责模块开发和性能优化。</li>
+          <li><strong>高级/资深（3-5 年）</strong>：具备系统设计能力，掌握分布式系统、微服务架构、高并发处理，能够带领团队解决复杂技术问题。</li>
+        </ul>
+        <p><strong>关键因素</strong>：学习效率、项目经验、代码质量和对技术原理的深入理解都会影响成长速度。</p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">后端开发人员的薪水是多少？</button>
+      <div class="faq-a">薪资因地区、经验和公司规模而异。国内一线城市（北上广深）：初级 10K-18K/月，中级 18K-35K/月，高级 35K-60K/月，资深/架构师可达 60K 以上。二三线城市薪资约为一线城市的 70%-85%。大厂（阿里、腾讯、字节）、外企和独角兽公司通常有更高的薪资水平，并提供股权激励。后端开发的薪资普遍高于前端同级别岗位 10%-20%。</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">我应该学习后端路线图上列出的所有内容吗？</button>
+      <div class="faq-a">不必全部掌握。路线图提供的是完整的知识体系，建议：① 优先掌握阶段一和阶段二的核心内容，这是求职的基础；② 根据职业方向选择性深入（如偏重微服务架构、性能优化或大数据处理）；③ 某些高级主题（如 Kubernetes、服务网格）可在工作中按需学习；④ 持续关注行业动态，保持技术敏感度，根据项目需求补充知识。重要的是打好基础，再逐步拓展深度和广度。</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">什么是微服务架构？</button>
+      <div class="faq-a">微服务架构是一种将单体应用拆分为多个小型、独立服务的架构模式，每个服务负责特定的业务功能，拥有独立的数据库和部署流程，服务之间通过轻量级通信机制（如 REST API 或 gRPC）协作。微服务的优势包括：① 独立开发和部署，提升团队协作效率；② 故障隔离，单个服务异常不影响整体；③ 技术栈灵活，不同服务可选择不同语言。常见的微服务框架有 <code>Spring Cloud</code>、<code>Dubbo</code>、<code>gRPC</code> 等。</div>
+    </div>
+  </section>
+
+  <script src="../../treant-js-master/vendor/raphael.js"></script>
+  <script src="../../treant-js-master/Treant.js"></script>
+  <script src="./backend.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function(){
+      if (window.RenderBackendRoadmap) window.RenderBackendRoadmap();
+      if (window.EnhanceBackendPage) window.EnhanceBackendPage();
+    });
+  </script>
+</body>
+</html>

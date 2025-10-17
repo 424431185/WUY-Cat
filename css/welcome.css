@@ -1,0 +1,495 @@
+/* 武小喵的茶香小窝 - 纯茶文化风格 */
+
+:root {
+  --tea-green: #10b981;
+  --tea-brown: #065f46;
+  --tea-light: #1f2937;
+  --tea-cream: #fefdfb;
+  --tea-dark: #064e3b;
+  --bamboo-green: #34d399;
+  --tea-smoke: #6b7280;
+  --tea-gold: #fbbf24;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: 'KaiTi', 'STKaiti', '楷体', 'Microsoft YaHei', sans-serif;
+  background: 
+    radial-gradient(circle at 30% 40%, rgba(16, 185, 129, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 70% 70%, rgba(52, 211, 153, 0.06) 0%, transparent 50%),
+    linear-gradient(135deg, 
+      #fefdfb 0%, 
+      #f8faf9 25%, 
+      #f0f9f4 50%, 
+      #f8faf9 75%, 
+      #fefdfb 100%);
+  color: var(--tea-light);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+/* 茶叶飘落动画背景 */
+.floating-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.float-item {
+  position: absolute;
+  font-size: 28px;
+  opacity: 0.25;
+  animation: float-down linear infinite;
+  filter: drop-shadow(0 2px 6px rgba(16, 185, 129, 0.4));
+}
+
+.float-item:nth-child(1) { left: 8%; animation-delay: 0s; animation-duration: 14s; }
+.float-item:nth-child(2) { left: 18%; animation-delay: 2s; animation-duration: 16s; font-size: 24px; }
+.float-item:nth-child(3) { left: 28%; animation-delay: 4s; animation-duration: 15s; }
+.float-item:nth-child(4) { left: 38%; animation-delay: 1s; animation-duration: 17s; font-size: 26px; }
+.float-item:nth-child(5) { left: 48%; animation-delay: 3s; animation-duration: 14s; }
+.float-item:nth-child(6) { left: 58%; animation-delay: 5s; animation-duration: 16s; font-size: 25px; }
+.float-item:nth-child(7) { left: 68%; animation-delay: 2.5s; animation-duration: 15s; }
+.float-item:nth-child(8) { left: 78%; animation-delay: 4.5s; animation-duration: 17s; font-size: 27px; }
+.float-item:nth-child(9) { left: 88%; animation-delay: 1.5s; animation-duration: 14s; }
+.float-item:nth-child(10) { left: 13%; animation-delay: 6s; animation-duration: 16s; font-size: 23px; }
+
+@keyframes float-down {
+  0% {
+    top: -10%;
+    transform: translateX(0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.6;
+  }
+  25% {
+    transform: translateX(40px) rotate(120deg);
+  }
+  50% {
+    transform: translateX(-40px) rotate(240deg);
+  }
+  75% {
+    transform: translateX(30px) rotate(300deg);
+  }
+  90% {
+    opacity: 0.6;
+  }
+  100% {
+    top: 110%;
+    transform: translateX(0) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* 主容器 */
+.main-container {
+  position: relative;
+  z-index: 10;
+  width: 90%;
+  max-width: 650px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* 欢迎区域 */
+.welcome-section {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 30px;
+  padding: 50px 45px;
+  text-align: center;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1),
+              0 0 40px rgba(16, 185, 129, 0.15),
+              inset 0 2px 0 rgba(16, 185, 129, 0.1);
+  backdrop-filter: blur(20px);
+  border: 3px solid rgba(16, 185, 129, 0.3);
+  animation: fadeInScale 1.2s ease-out;
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.9) translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* 茶壶图标 */
+.teapot-icon {
+  width: 140px;
+  height: 120px;
+  margin: 0 auto 35px;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+/* 蒸汽动画 */
+.steam {
+  animation: steamRise 2.5s ease-in-out infinite;
+}
+
+@keyframes steamRise {
+  0% {
+    opacity: 0.8;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-18px);
+  }
+}
+
+/* 欢迎标题 */
+.welcome-title {
+  font-size: 3em;
+  font-weight: 700;
+  background: linear-gradient(135deg, #6ee7b7, #10b981, #059669);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 25px;
+  letter-spacing: 6px;
+  animation: titleGlow 3s ease-in-out infinite;
+  filter: drop-shadow(0 3px 12px rgba(16, 185, 129, 0.6));
+}
+
+@keyframes titleGlow {
+  0%, 100% {
+    filter: drop-shadow(0 3px 12px rgba(16, 185, 129, 0.6))
+            drop-shadow(0 0 25px rgba(16, 185, 129, 0.5));
+  }
+  50% {
+    filter: drop-shadow(0 3px 12px rgba(16, 185, 129, 0.6))
+            drop-shadow(0 0 40px rgba(52, 211, 153, 0.8));
+  }
+}
+
+
+/* 按钮容器 */
+.btn-container {
+  margin: 45px 0 35px;
+}
+
+/* 开始按钮 */
+.start-btn {
+  position: relative;
+  padding: 20px 75px;
+  font-size: 1.6em;
+  font-weight: 700;
+  color: white;
+  background: linear-gradient(135deg, 
+    #10b981 0%, 
+    #059669 50%, 
+    #047857 100%);
+  border: 3px solid var(--tea-green);
+  border-radius: 50px;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 10px 30px rgba(16, 185, 129, 0.4),
+              0 0 20px rgba(16, 185, 129, 0.2),
+              inset 0 2px 0 rgba(255, 255, 255, 0.3);
+  letter-spacing: 8px;
+  font-family: 'KaiTi', 'STKaiti', '楷体', serif;
+  animation: btnPulse 2.5s ease-in-out infinite;
+}
+
+@keyframes btnPulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 10px 30px rgba(16, 185, 129, 0.4),
+                0 0 20px rgba(16, 185, 129, 0.2),
+                inset 0 2px 0 rgba(255, 255, 255, 0.3);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 15px 40px rgba(16, 185, 129, 0.5),
+                0 0 30px rgba(16, 185, 129, 0.3),
+                0 0 0 12px rgba(16, 185, 129, 0.15),
+                inset 0 2px 0 rgba(255, 255, 255, 0.4);
+  }
+}
+
+.btn-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.start-btn:hover {
+  transform: translateY(-8px) scale(1.1);
+  box-shadow: 0 20px 50px rgba(16, 185, 129, 0.5),
+              0 0 40px rgba(16, 185, 129, 0.3),
+              0 0 0 15px rgba(16, 185, 129, 0.15),
+              inset 0 3px 0 rgba(255, 255, 255, 0.4);
+  border-color: var(--bamboo-green);
+  background: linear-gradient(135deg, 
+    #34d399 0%, 
+    #10b981 50%, 
+    #059669 100%);
+  animation: none;
+}
+
+.start-btn:hover .btn-glow {
+  width: 450px;
+  height: 450px;
+}
+
+.start-btn:active {
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 10px 25px rgba(16, 185, 129, 0.5);
+}
+
+.btn-text {
+  position: relative;
+  z-index: 1;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* 底部装饰文字 */
+.footer-text {
+  margin-top: 35px;
+  font-size: 1.05em;
+  color: var(--tea-smoke);
+  opacity: 0.9;
+  letter-spacing: 2px;
+  animation: fadeIn 2s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 0.8;
+  }
+}
+
+/* 智能体茶室 */
+.agent-house {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  z-index: 100;
+  animation: houseSlideIn 1.2s ease-out;
+}
+
+@keyframes houseSlideIn {
+  from {
+    opacity: 0;
+    transform: translateX(120px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.house-frame {
+  width: 260px;
+  height: 320px;
+  filter: drop-shadow(0 8px 25px rgba(0, 0, 0, 0.15));
+}
+
+/* 茶香烟雾动画 */
+.smoke-animation {
+  animation: smokeRise 3s ease-in-out infinite;
+}
+
+@keyframes smokeRise {
+  0% {
+    opacity: 0.7;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-25px);
+  }
+}
+
+/* 智能体占位符 */
+.agent-placeholder {
+  position: absolute;
+  bottom: 115px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  font-size: 0.85em;
+  color: var(--tea-smoke);
+  opacity: 0.8;
+  pointer-events: none;
+  letter-spacing: 1px;
+}
+
+/* 响应式设计 */
+@media (max-width: 1024px) {
+  .agent-house {
+    bottom: 0;
+    right: 0;
+  }
+  
+  .house-frame {
+    width: 230px;
+    height: 285px;
+  }
+  
+  .agent-placeholder {
+    bottom: 95px;
+    font-size: 0.75em;
+  }
+}
+
+@media (max-width: 768px) {
+  .welcome-section {
+    padding: 40px 30px;
+  }
+
+  .welcome-title {
+    font-size: 2.2em;
+    letter-spacing: 4px;
+  }
+
+  .welcome-subtitle {
+    font-size: 1.15em;
+  }
+
+  .teapot-icon {
+    width: 110px;
+    height: 95px;
+  }
+
+  .start-btn {
+    padding: 16px 55px;
+    font-size: 1.4em;
+    letter-spacing: 5px;
+  }
+
+  .agent-house {
+    bottom: 0;
+    right: 0;
+  }
+
+  .house-frame {
+    width: 200px;
+    height: 250px;
+  }
+  
+  .agent-placeholder {
+    bottom: 80px;
+    font-size: 0.7em;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-container {
+    width: 95%;
+    padding: 10px;
+  }
+
+  .welcome-section {
+    padding: 30px 20px;
+    border-radius: 20px;
+  }
+
+  .welcome-title {
+    font-size: 1.8em;
+    letter-spacing: 2px;
+  }
+
+  .welcome-subtitle {
+    font-size: 1em;
+  }
+
+  .teapot-icon {
+    width: 90px;
+    height: 80px;
+  }
+
+  .welcome-desc {
+    font-size: 1em;
+  }
+
+  .start-btn {
+    padding: 14px 45px;
+    font-size: 1.2em;
+    letter-spacing: 4px;
+  }
+
+  .agent-house {
+    bottom: 0;
+    right: 0;
+  }
+
+  .house-frame {
+    width: 170px;
+    height: 210px;
+  }
+  
+  .agent-placeholder {
+    bottom: 65px;
+    font-size: 0.65em;
+  }
+
+  .float-item {
+    font-size: 20px;
+  }
+}
+
+/* 超小屏幕 */
+@media (max-width: 360px) {
+  .welcome-title {
+    font-size: 1.5em;
+  }
+
+  .start-btn {
+    padding: 12px 35px;
+    font-size: 1em;
+    letter-spacing: 3px;
+  }
+
+  .house-frame {
+    width: 140px;
+    height: 175px;
+  }
+  
+  .agent-placeholder {
+    bottom: 50px;
+    font-size: 0.6em;
+  }
+}
