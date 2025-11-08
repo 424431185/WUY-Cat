@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>校园美食指南 - 精选6家特色餐厅</title>
+    <link rel="stylesheet" href="css/food.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <a href="javascript:history.back()" class="nav-back" aria-label="返回">←</a>
+                <span class="logo">🍜</span>
+                <span class="brand-name">校园美食</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#wheel" class="nav-link active">今天吃什么</a></li>
+                <li><a href="#restaurants" class="nav-link">餐厅介绍</a></li>
+                <li><a href="#menu" class="nav-link">热门菜品</a></li>
+                <li><a href="#health" class="nav-link">健康指南</a></li>
+                <li><a href="#delivery" class="nav-link">配送信息</a></li>
+                <li><a href="#contact" class="nav-link">联系方式</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- 转盘选择区域 -->
+    <section id="wheel" class="wheel-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">今天吃什么</h2>
+                <p class="section-subtitle">让转盘帮你决定 · 随机推荐校园美食</p>
+            </div>
+            
+            <div class="wheel-container">
+                <div class="wheel-wrapper">
+                    <!-- Canvas转盘 -->
+                    <canvas id="wheelCanvas" width="500" height="500"></canvas>
+                    
+                    <!-- 中心按钮 -->
+                    <div class="wheel-center-btn" id="spinBtn">
+                        <div class="btn-icon"><img src="images/foodcat.png" alt="转动图标" style="width: 60px; height: 60px; object-fit: contain;"></div>
+                        <div class="btn-text">点击转动</div>
+                    </div>
+                    
+                    <!-- 指针 -->
+                    <div class="wheel-pointer">▼</div>
+                </div>
+                
+                <!-- 结果展示 -->
+                <div class="wheel-result" id="wheelResult">
+                    <div class="result-icon">🍜</div>
+                    <div class="result-title">点击转盘开始</div>
+                    <div class="result-subtitle">让命运帮你选择今天的美食</div>
+                </div>
+            </div>
+            
+            <!-- 重置按钮 -->
+            <div class="wheel-actions">
+                <button class="btn-reset" id="resetBtn" style="display: none;">再转一次</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 餐厅介绍 -->
+    <section id="restaurants" class="restaurants">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">精选餐厅</h2>
+                <p class="section-subtitle">6家特色餐厅，满足您的多样口味</p>
+            </div>
+            <div class="restaurant-grid">
+                <!-- 香香餐馆 -->
+                <div class="restaurant-card xiangxiang-card">
+                    <div class="restaurant-cover">
+                        <img src="images/xiangxiangcanguan.webp" alt="香香餐馆店铺封面">
+                    </div>
+                    <div class="restaurant-header">
+                        <div class="restaurant-icon">🍚</div>
+                        <div class="restaurant-info">
+                            <h3>香香餐馆</h3>
+                            <div class="restaurant-tags">
+                                <span class="tag">盖浇饭</span>
+                                <span class="tag">小炒</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="restaurant-meta">
+                        <span class="rating">⭐ 4.9</span>
+                        <span class="sales">月售1000+</span>
+                        <span class="delivery">约50分钟</span>
+                    </div>
+                    <p class="restaurant-desc">现炒盖浇饭专家，商家自配送</p>
+                    <div class="restaurant-price">起送价：¥15</div>
+                </div>
+
+                <!-- 烧鹅王子 -->
+                <div class="restaurant-card shaoe-card">
+                    <div class="restaurant-cover">
+                        <img src="images/shaoerwangzi.webp" alt="烧鹅王子店铺封面">
+                    </div>
+                    <div class="restaurant-header">
+                        <div class="restaurant-icon">🦆</div>
+                        <div class="restaurant-info">
+                            <h3>烧鹅王子·鸭掌柜</h3>
+                            <div class="restaurant-tags">
+                                <span class="tag">烧腊</span>
+                                <span class="tag">双拼饭</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="restaurant-meta">
+                        <span class="rating">⭐ 4.6</span>
+                        <span class="sales">月售4000+</span>
+                        <span class="delivery">约37分钟</span>
+                    </div>
+                    <p class="restaurant-desc">经典烧腊美味，满25减2</p>
+                    <div class="restaurant-price">起送价：¥15 · 免配送费</div>
+                </div>
+
+                <!-- 客家瓦罐 -->
+                <div class="restaurant-card waguan-card">
+                    <div class="restaurant-cover">
+                        <img src="images/kejiawaguan.webp" alt="客家瓦罐店铺封面">
+                    </div>
+                    <div class="restaurant-header">
+                        <div class="restaurant-icon">🍲</div>
+                        <div class="restaurant-info">
+                            <h3>客家瓦罐</h3>
+                            <div class="restaurant-tags">
+                                <span class="tag">瓦罐汤</span>
+                                <span class="tag">套餐</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="restaurant-meta">
+                        <span class="rating">⭐ 4.2</span>
+                        <span class="sales">月售6000+</span>
+                        <span class="delivery">约40分钟</span>
+                    </div>
+                    <p class="restaurant-desc">瓦罐煨汤营养美味，满40减5</p>
+                    <div class="restaurant-price">起送价：¥18 · 免配送费</div>
+                </div>
+
+                <!-- 木桑森林 -->
+                <div class="restaurant-card musan-card">
+                    <div class="restaurant-cover">
+                        <img src="images/musansenlin.jpg_.webp" alt="木桑森林店铺封面">
+                    </div>
+                    <div class="restaurant-header">
+                        <div class="restaurant-icon">🥗</div>
+                        <div class="restaurant-info">
+                            <h3>木桑森林·轻食</h3>
+                            <div class="restaurant-tags">
+                                <span class="tag">沙拉</span>
+                                <span class="tag">减脂餐</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="restaurant-meta">
+                        <span class="rating">⭐ 4.2</span>
+                        <span class="sales">月售8000+</span>
+                        <span class="delivery">约40分钟</span>
+                    </div>
+                    <p class="restaurant-desc">健康轻食首选，提供热量信息</p>
+                    <div class="restaurant-price">起送价：¥15 · 免配送费</div>
+                </div>
+
+                <!-- 包青天粥 -->
+                <div class="restaurant-card baozi-card">
+                    <div class="restaurant-cover">
+                        <img src="images/baoqingtian.webp" alt="包青天粥店铺封面">
+                    </div>
+                    <div class="restaurant-header">
+                        <div class="restaurant-icon">🥣</div>
+                        <div class="restaurant-info">
+                            <h3>包青天粥</h3>
+                            <div class="restaurant-tags">
+                                <span class="tag">粥品</span>
+                                <span class="tag">早餐</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="restaurant-meta">
+                        <span class="rating">⭐ 4.8</span>
+                        <span class="sales">月售3000+</span>
+                        <span class="delivery">约45分钟</span>
+                    </div>
+                    <p class="restaurant-desc">养生粥品专家，满30减3</p>
+                    <div class="restaurant-price">起送价：¥15 · 免配送费</div>
+                </div>
+
+                <!-- 兰州拉面馆 -->
+                <div class="restaurant-card lamian-card">
+                    <div class="restaurant-cover">
+                        <img src="images/lanzhoulamian.webp" alt="兰州拉面馆店铺封面">
+                    </div>
+                    <div class="restaurant-header">
+                        <div class="restaurant-icon">🍜</div>
+                        <div class="restaurant-info">
+                            <h3>民族餐厅-兰州拉面</h3>
+                            <div class="restaurant-tags">
+                                <span class="tag">拉面</span>
+                                <span class="tag">西北风味</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="restaurant-meta">
+                        <span class="rating">⭐ 4.7</span>
+                        <span class="sales">月售4500+</span>
+                        <span class="delivery">约30分钟</span>
+                    </div>
+                    <p class="restaurant-desc">正宗牛肉拉面，满25减5</p>
+                    <div class="restaurant-price">起送价：¥12 · 免配送费</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 特色美食 -->
+    <section id="menu" class="menu">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">热门菜品</h2>
+                <p class="section-subtitle">精选各餐厅招牌美食</p>
+            </div>
+            <div class="menu-filter">
+                <button class="filter-btn active" data-filter="all">全部</button>
+                <button class="filter-btn" data-filter="xiangxiang">香香餐馆</button>
+                <button class="filter-btn" data-filter="shaoe">烧鹅王子</button>
+                <button class="filter-btn" data-filter="waguan">客家瓦罐</button>
+                <button class="filter-btn" data-filter="musan">木桑森林</button>
+                <button class="filter-btn" data-filter="baozi">包青天粥</button>
+                <button class="filter-btn" data-filter="lamian">兰州拉面</button>
+            </div>
+            <div class="menu-grid">
+                <!-- 香香餐馆 -->
+                <div class="menu-item" data-category="xiangxiang">
+                    <div class="menu-image">
+                        <img src="images/1.png" alt="鱼香肉丝盖浇饭">
+                        <div class="menu-overlay">
+                            <span class="view-detail">查看详情</span>
+                        </div>
+                    </div>
+                    <div class="menu-info">
+                        <h3>鱼香肉丝盖浇饭 <span class="hot-badge">🔥人气第5</span></h3>
+                        <p>现炒现做，食材新鲜 · 中辣</p>
+                        <div class="menu-footer">
+                            <span class="price">¥24.6</span>
+                            <span class="badge">香香餐馆</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-item" data-category="xiangxiang">
+                    <div class="menu-image">
+                        <img src="images/2.png" alt="小炒肉盖浇饭">
+                        <div class="menu-overlay">
+                            <span class="view-detail">查看详情</span>
+                        </div>
+                    </div>
+                    <div class="menu-info">
+                        <h3>小炒肉盖浇饭+饮品 <span class="hot-badge">🔥人气第4</span></h3>
+                        <p>好吃下饭 · 中辣</p>
+                        <div class="menu-footer">
+                            <span class="price">¥19</span>
+                            <span class="badge">香香餐馆</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-item" data-category="xiangxiang">
+                    <div class="menu-image">
+                        <img src="images/3.png" alt="青椒炒蛋盖浇饭">
+                        <div class="menu-overlay">
+                            <span class="view-detail">查看详情</span>
+                        </div>
+                    </div>
+                    <div class="menu-info">
+                        <h3>青椒炒蛋盖浇饭 <span class="hot-badge">🔥人气第2</span></h3>
+                        <p>经典家常 · 微辣</p>
+                        <div class="menu-footer">
+                            <span class="price">¥20.6</span>
+                            <span class="badge">香香餐馆</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 烧鹅王子 -->
+                <div class="menu-item" data-category="shaoe">
+                    <div class="menu-image">
+                        <img src="images/4.png" alt="叉烧拼烤鸭饭">
+                        <div class="menu-overlay">
+                            <span class="view-detail">查看详情</span>
+                        </div>
+                    </div>
+                    <div class="menu-info">
+                        <h3>叉烧拼烤鸭饭 <span class="hot-badge">🔥热销第1</span></h3>
+                        <p>经典必吃 · 月销300+ · 叉烧+烤鸭+大米</p>
+                        <div class="menu-footer">
+                            <span class="price">¥16.33 <del>¥21.33</del></span>
+                            <span class="badge">烧鹅王子</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-item" data-category="shaoe">
+                    <div class="menu-image">
+                        <img src="images/5.png" alt="卤香肉肠饭">
+                        <div class="menu-overlay">
+                            <span class="view-detail">查看详情</span>
+                        </div>
+                    </div>
+                    <div class="menu-info">
+                        <h3>卤香肉肠饭 <span class="hot-badge">⭐招牌</span></h3>
+                        <p>TOP1 招牌拿手菜</p>
+                        <div class="menu-footer">
+                            <span class="price">¥12.3 <del>¥17.3</del></span>
+                            <span class="badge">烧鹅王子</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-item" data-category="shaoe">
+                    <div class="menu-image">
+                        <img src="images/6.png" alt="叉烧拼卤牛肉饭">
+                        <div class="menu-overlay">
+                            <span class="view-detail">查看详情</span>
+                        </div>
+                    </div>
+                    <div class="menu-info">
+                        <h3>叉烧拼卤牛肉饭 <span class="hot-badge">🔥热销第4</span></h3>
+                        <p>月销100+ · 叉烧+卤牛肉</p>
+                        <div class="menu-footer">
+                            <span class="price">¥16.33 <del>¥23.33</del></span>
+                            <span class="badge">烧鹅王子</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 客家瓦罐 -->
+                <div class="menu-item" data-category="waguan">
+                    <div class="menu-image">
+                        <img src="images/7.png" alt="茶菇乌鸡汤套餐">
+                        <div class="menu-overlay">
+                            <span class="view-detail">查看详情</span>
+                        </div>
+                    </div>
+                    <div class="menu-info">
+                        <h3>茶菇乌鸡汤一荤二素加饭 <span class="hot-badge">🔥人气第4</span></h3>
+                        <p>月销100+ · 营养滋补</p>
+                        <div class="menu-footer">
+                            <span class="price">¥15.2 <del>¥23.2</del></span>
+                            <span class="badge">客家瓦罐</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-item" data-category="waguan">
+                    <div class="menu-image">
+                        <img src="images/8.png" alt="荔枝肉">
+                        <div class="menu-overlay">
+                            <span class="view-detail">查看详情</span>
+                        </div>
+                    </div>
+                    <div class="menu-info">
+                        <h3>荔枝肉 <span class="hot-badge">⭐好评第1</span></h3>
+                        <p>近期4人给出好评 · 月销100+</p>
+                        <div class="menu-footer">
+                            <span class="price">¥1.6 <del>¥7.6</del></span>
+                            <span class="badge">客家瓦罐</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-item" data-category="waguan">
+                    <div class="menu-image">
+                        <img src="images/9.png" alt="茶菇肉泥汤套餐">
+                        <div class="menu-overlay">
+                            <span class="view-detail">查看详情</span>
+                        </div>
+                    </div>
+                    <div class="menu-info">
+                        <h3>茶菇肉泥汤一荤二素加饭 <span class="hot-badge">🔥回头客第8</span></h3>
+                        <p>月销200+ · 7天内50人下单</p>
+                        <div class="menu-footer">
+                            <span class="price">¥16.89起 <del>¥21.89起</del></span>
+                            <span class="badge">客家瓦罐</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 木桑森林 -->
+                <div class="menu-item" data-category="musan">
+                    <div class="menu-image">
+                        <img src="images/10.png" alt="香煎鸡胸肉减脂餐">
+                        <div class="menu-overlay">
+                            <span class="view-detail">查看详情</span>
+                        </div>
+                    </div>
+                    <div class="menu-info">
+                        <h3>招牌香煎鸡胸肉减脂健康餐 <span class="hot-badge">🔥热销第1</span></h3>
+                        <p>月销2000+ · 近期10人好评 · 主食自选</p>
+                        <div class="menu-footer">
+                            <span class="price">¥14.1 <del>¥24.6</del></span>
+                            <span class="badge">木桑森林</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-item" data-category="musan">
+                    <div class="menu-image">
+                        <img src="images/11.png" alt="蛋白双拼">
+                        <div class="menu-overlay">
+                            <span class="view-detail">查看详情</span>
+                        </div>
+                    </div>
+                    <div class="menu-info">
+                        <h3>蛋白双拼鸡胸+虾仁减脂餐 <span class="hot-badge">🔥热销第5</span></h3>
+                        <p>月销400+ · 近期6人好评 · 主食自选</p>
+                        <div class="menu-footer">
+                            <span class="price">¥18.3 <del>¥28.8</del></span>
+                            <span class="badge">木桑森林</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-item" data-category="musan">
+                    <div class="menu-image">
+                        <img src="images/12.png" alt="黑椒意面">
+                        <div class="menu-overlay">
+                            <span class="view-detail">查看详情</span>
+                        </div>
+                    </div>
+                    <div class="menu-info">
+                        <h3>黑椒意面Pasta</h3>
+                        <p>月销100+ · 7天内49人下单 · 肉肉自选</p>
+                        <div class="menu-footer">
+                            <span class="price">¥14.1起 <del>¥24.6起</del></span>
+                            <span class="badge">木桑森林</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 包青天粥 -->
+                <div class="menu-item" data-category="baozi">
+                    <div class="menu-image">
+                        <img src="images/13.png" alt="水煮蛋">
+                        <div class="menu-overlay">
+                            <span class="view-detail">查看详情</span>
+                        </div>
+                    </div>
+                    <div class="menu-info">
+                        <h3>水煮蛋 <span class="hot-badge">🔥热销第1</span></h3>
+                        <p>月销800+ · 近期9人好评</p>
+                        <div class="menu-footer">
+                            <span class="price">¥0.01 <del>¥2.5</del></span>
+                            <span class="badge">包青天粥</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-item" data-category="baozi">
+                    <div class="menu-image">
+                        <img src="images/14.png" alt="红糖黑米养生粥">
+                        <div class="menu-overlay">
+                            <span class="view-detail">查看详情</span>
+                        </div>
+                    </div>
+                    <div class="menu-info">
+                        <h3>红糖黑米养生粥</h3>
+                        <p>女生的好朋友 · 月销100+ · 7天内26人下单</p>
+                        <div class="menu-footer">
+                            <span class="price">¥1.5起 <del>¥8.5起</del></span>
+                            <span class="badge">包青天粥</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-item" data-category="baozi">
+                    <div class="menu-image">
+                        <img src="images/15.png" alt="紫薯燕麦红枣粥">
+                        <div class="menu-overlay">
+                            <span class="view-detail">查看详情</span>
+                        </div>
+                    </div>
+                    <div class="menu-info">
+                        <h3>紫薯燕麦红枣粥 <span class="hot-badge">🔥人气第5</span></h3>
+                        <p>月销100+ · 7天内40人下单 · 营养健康</p>
+                        <div class="menu-footer">
+                            <span class="price">¥1起 <del>¥8.5起</del></span>
+                            <span class="badge">包青天粥</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 兰州拉面馆 -->
+                <div class="menu-item" data-category="lamian">
+                    <div class="menu-image">
+                        <img src="images/16.png" alt="兰州牛肉拉面">
+                        <div class="menu-overlay">
+                            <span class="view-detail">查看详情</span>
+                        </div>
+                    </div>
+                    <div class="menu-info">
+                        <h3>民族餐厅——兰州拉面 <span class="hot-badge">🔥热销第1</span></h3>
+                        <p>正宗清汤 · 月销1200+ · 现拉现煮</p>
+                        <div class="menu-footer">
+                            <span class="price">¥16</span>
+                            <span class="badge">兰州拉面馆</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-item" data-category="lamian">
+                    <div class="menu-image">
+                        <img src="images/17.png" alt="炒面">
+                        <div class="menu-overlay">
+                            <span class="view-detail">查看详情</span>
+                        </div>
+                    </div>
+                    <div class="menu-info">
+                        <h3>西北炒面</h3>
+                        <p>香辣爽口 · 月销800+</p>
+                        <div class="menu-footer">
+                            <span class="price">¥14</span>
+                            <span class="badge">兰州拉面馆</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-item" data-category="lamian">
+                    <div class="menu-image">
+                        <img src="images/18.png" alt="酸菜面">
+                        <div class="menu-overlay">
+                            <span class="view-detail">查看详情</span>
+                        </div>
+                    </div>
+                    <div class="menu-info">
+                        <h3>酸菜牛肉面 <span class="hot-badge">🔥人气第2</span></h3>
+                        <p>酸爽开胃 · 月销600+</p>
+                        <div class="menu-footer">
+                            <span class="price">¥18</span>
+                            <span class="badge">兰州拉面馆</span>
+                        </div>
+                    </div>
+                </div>
+
+              
+
+    <!-- 健康饮食指南 -->
+    <section id="health" class="health-guide">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">智能膳食助手</h2>
+                <p class="section-subtitle">食疗健康知识库 · 科学饮食建议</p>
+                <p class="health-notice">⚠️ 食疗不能替代药物治疗。以下建议适用于日常保健和轻微症状的辅助缓解，若症状严重或持续，请务必及时就医。</p>
+            </div>
+
+            <div class="health-simple-grid">
+                <div class="health-simple-card">
+                    <div class="health-icon">⚡</div>
+                    <h4>缓解疲劳</h4>
+                    <p>补充优质蛋白质和复合碳水化合物，推荐：鸡蛋、牛奶、全麦食品</p>
+                </div>
+                <div class="health-simple-card">
+                    <div class="health-icon">🤧</div>
+                    <h4>感冒初期</h4>
+                    <p>清淡饮食，多喝水，推荐：清粥、姜汤、新鲜水果</p>
+                </div>
+                <div class="health-simple-card">
+                    <div class="health-icon">👁️</div>
+                    <h4>用眼疲劳</h4>
+                    <p>补充维生素A和叶黄素，推荐：胡萝卜、菠菜、鸡蛋</p>
+                </div>
+                <div class="health-simple-card">
+                    <div class="health-icon">🧠</div>
+                    <h4>增强记忆</h4>
+                    <p>富含DHA和卵磷脂，推荐：鱼类、核桃、鸡蛋</p>
+                </div>
+                <div class="health-simple-card">
+                    <div class="health-icon">😌</div>
+                    <h4>舒缓情绪</h4>
+                    <p>促进血清素合成，推荐：香蕉、牛奶、燕麦</p>
+                </div>
+                <div class="health-simple-card">
+                    <div class="health-icon">🍵</div>
+                    <h4>武夷茶饮</h4>
+                    <p>解腻消食：岩茶；舒缓放松：红茶；清热降火：绿茶</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 配送信息 -->
+    <section id="delivery" class="hours">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">配送信息</h2>
+                <p class="section-subtitle">快捷配送，送餐到门</p>
+            </div>
+            <div class="hours-grid">
+                <div class="hours-card">
+                    <div class="hours-icon">🚚</div>
+                    <h3>配送方式</h3>
+                    <p class="time">校园送 / 商家自配送</p>
+                    <p class="desc">约37-50分钟送达</p>
+                </div>
+                <div class="hours-card">
+                    <div class="hours-icon">💰</div>
+                    <h3>起送价格</h3>
+                    <p class="time">¥15 - ¥18</p>
+                    <p class="desc">大部分餐厅免配送费</p>
+                </div>
+                <div class="hours-card">
+                    <div class="hours-icon">🎁</div>
+                    <h3>优惠活动</h3>
+                    <p class="time">满减优惠</p>
+                    <p class="desc">满25减2、满30减3、满40减5</p>
+                </div>
+                <div class="hours-card">
+                    <div class="hours-icon">⭐</div>
+                    <h3>新粉福利</h3>
+                    <p class="time">入群享红包</p>
+                    <p class="desc">新用户入群可领2元红包</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系方式 -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">联系方式</h2>
+                <p class="section-subtitle">餐厅信息查询</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div class="info-item">
+                        <div class="info-icon">📱</div>
+                        <div class="info-content">
+                            <h4>在线订餐</h4>
+                            <p>支持外卖平台在线下单</p>
+                            <p>美团、饿了么均可配送</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon">🏪</div>
+                        <div class="info-content">
+                            <h4>餐厅位置</h4>
+                            <p>校园内多个食堂区域</p>
+                            <p>四期食堂、神厨食堂等</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon">⏰</div>
+                        <div class="info-content">
+                            <h4>营业时间</h4>
+                            <p>早餐：08:00 - 10:00</p>
+                            <p>午晚餐：11:00 - 21:00</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon">💬</div>
+                        <div class="info-content">
+                            <h4>客服咨询</h4>
+                            <p>关注餐厅公众号</p>
+                            <p>入群享专属优惠</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <h3>餐厅评分统计</h3>
+                    <div class="rating-stats">
+                        <div class="stat-row">
+                            <span class="stat-label">香香餐馆</span>
+                            <div class="stat-bar">
+                                <div class="stat-fill" style="width: 98%;">⭐ 4.9</div>
+                            </div>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">包青天粥</span>
+                            <div class="stat-bar">
+                                <div class="stat-fill" style="width: 96%;">⭐ 4.8</div>
+                            </div>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">烧鹅王子</span>
+                            <div class="stat-bar">
+                                <div class="stat-fill" style="width: 92%;">⭐ 4.6</div>
+                            </div>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">客家瓦罐</span>
+                            <div class="stat-bar">
+                                <div class="stat-fill" style="width: 84%;">⭐ 4.2</div>
+                            </div>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">木桑森林</span>
+                            <div class="stat-bar">
+                                <div class="stat-fill" style="width: 84%;">⭐ 4.2</div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="rating-note">💡 数据来源于外卖平台真实评分</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+      (function() {
+        var spinBtn = document.getElementById('spinBtn');
+        var resetBtn = document.getElementById('resetBtn');
+        var wheelCanvas = document.getElementById('wheelCanvas');
+        var wheelResult = document.getElementById('wheelResult');
+        var wheelContainer = document.querySelector('.wheel-container');
+        var resultIcon = wheelResult ? wheelResult.querySelector('.result-icon') : null;
+        var resultTitle = wheelResult ? wheelResult.querySelector('.result-title') : null;
+        var resultSubtitle = wheelResult ? wheelResult.querySelector('.result-subtitle') : null;
+        var spinning = false;
+        var options = ['香香餐馆','烧鹅王子·鸭掌柜','客家瓦罐','木桑森林·轻食','包青天粥','民族餐厅-兰州拉面'];
+
+        // 音效管理（Web Audio API 合成，无需音频文件）
+        var AudioManager = (function(){
+          var ctx = null;
+          var tickTimer = null;
+          function ensureCtx(){
+            if (!ctx) {
+              ctx = new (window.AudioContext || window.webkitAudioContext)();
+            }
+            if (ctx.state === 'suspended') ctx.resume();
+            return ctx;
+          }
+          function beep(frequency, durationMs, gainValue){
+            var ac = ensureCtx();
+            var osc = ac.createOscillator();
+            var gain = ac.createGain();
+            osc.type = 'square';
+            osc.frequency.value = frequency;
+            gain.gain.value = gainValue;
+            osc.connect(gain).connect(ac.destination);
+            var now = ac.currentTime;
+            osc.start(now);
+            osc.stop(now + durationMs/1000);
+          }
+          function startBeepSweep(){
+            var ac = ensureCtx();
+            var osc = ac.createOscillator();
+            var gain = ac.createGain();
+            osc.type = 'sine';
+            osc.frequency.setValueAtTime(400, ac.currentTime);
+            osc.frequency.exponentialRampToValueAtTime(800, ac.currentTime + 0.2);
+            gain.gain.value = 0.05;
+            osc.connect(gain).connect(ac.destination);
+            osc.start();
+            osc.stop(ac.currentTime + 0.25);
+          }
+          function startTicks(){
+            var phase = 0;
+            var schedule = [
+              {dur: 2800, interval: 120, freq: 900, gain: 0.03},
+              {dur: 900,  interval: 180, freq: 700, gain: 0.03},
+              {dur: 400,  interval: 240, freq: 600, gain: 0.025}
+            ];
+            var idx = 0;
+            var remaining = schedule[idx].dur;
+            function loop(){
+              var seg = schedule[idx];
+              beep(seg.freq, 20, seg.gain);
+              remaining -= seg.interval;
+              if (remaining <= 0) {
+                idx++;
+                if (idx >= schedule.length) { tickTimer = null; return; }
+                remaining = schedule[idx].dur;
+              }
+              tickTimer = setTimeout(loop, seg.interval);
+            }
+            stopTicks();
+            loop();
+          }
+          function stopTicks(){
+            if (tickTimer) { clearTimeout(tickTimer); tickTimer = null; }
+          }
+          function playWin(){
+            var ac = ensureCtx();
+            var osc = ac.createOscillator();
+            var gain = ac.createGain();
+            osc.type = 'triangle';
+            gain.gain.value = 0.06;
+            osc.connect(gain).connect(ac.destination);
+            var now = ac.currentTime;
+            osc.frequency.setValueAtTime(523.25, now); // C5
+            osc.frequency.linearRampToValueAtTime(659.25, now + 0.12); // E5
+            osc.frequency.linearRampToValueAtTime(783.99, now + 0.24); // G5
+            gain.gain.setValueAtTime(0.06, now);
+            gain.gain.exponentialRampToValueAtTime(0.001, now + 0.5);
+            osc.start(now);
+            osc.stop(now + 0.5);
+          }
+          return { playStart: startBeepSweep, startTicks: startTicks, stopTicks: stopTicks, playWin: playWin };
+        })();
+
+        function pickOne() {
+          return options[Math.floor(Math.random() * options.length)];
+        }
+
+        function onSpinEnd(chosen) {
+          if (!wheelResult) return;
+          wheelResult.classList.add('show-result');
+          if (resultIcon) {
+            resultIcon.classList.remove('penguin-pop');
+            resultIcon.innerHTML = '';
+            var img = document.createElement('img');
+            img.src = 'images/foodqier.png';
+            img.alt = '企鹅';
+            img.className = 'penguin-img penguin-pop';
+            resultIcon.appendChild(img);
+          }
+          if (resultTitle) {
+            resultTitle.textContent = '已为你选中：' + chosen;
+          }
+          if (resultSubtitle) {
+            resultSubtitle.textContent = '祝你用餐愉快～';
+          }
+          if (wheelContainer) {
+            wheelContainer.classList.add('post-spin');
+          }
+          if (resetBtn) {
+            resetBtn.style.display = 'inline-block';
+          }
+          // 音效：停止滴答并播放提示
+          AudioManager.stopTicks();
+          AudioManager.playWin();
+
+          spinning = false;
+          if (spinBtn) spinBtn.classList.remove('spinning');
+        }
+
+        function doSpin() {
+          if (spinning) return;
+          spinning = true;
+          if (resetBtn) resetBtn.style.display = 'none';
+          if (wheelResult) wheelResult.classList.remove('show-result');
+          if (resultIcon) resultIcon.classList.remove('penguin-pop');
+
+          var chosen = pickOne();
+          var baseTurns = 6; // 基础圈数
+          var extra = Math.floor(Math.random() * 360); // 0-359 额外角度
+          var totalDeg = baseTurns * 360 + extra;
+
+          // 以 CSS 过渡驱动旋转
+          wheelCanvas.style.transition = 'transform 4s cubic-bezier(0.22, 1, 0.36, 1)';
+          wheelCanvas.style.transform = 'rotate(' + totalDeg + 'deg)';
+          if (spinBtn) spinBtn.classList.add('spinning');
+
+          // 音效：启动+滴答
+          AudioManager.playStart();
+          AudioManager.startTicks();
+
+          // 监听一次性结束
+          var once = function() {
+            wheelCanvas.removeEventListener('transitionend', once);
+            onSpinEnd(chosen);
+          };
+          wheelCanvas.addEventListener('transitionend', once);
+
+          // 兜底（某些浏览器或未触发transitionend时）
+          setTimeout(function(){
+            if (spinning) {
+              onSpinEnd(chosen);
+            }
+          }, 4200);
+        }
+
+        if (spinBtn) {
+          spinBtn.addEventListener('click', doSpin);
+        }
+        if (resetBtn) {
+          resetBtn.addEventListener('click', function(){
+            wheelCanvas.style.transition = 'none';
+            wheelCanvas.style.transform = 'rotate(0deg)';
+            // 触发回流以重置过渡
+            void wheelCanvas.offsetWidth;
+            if (wheelContainer) wheelContainer.classList.remove('post-spin');
+            if (wheelResult) {
+              wheelResult.classList.remove('show-result');
+              if (resultIcon) {
+                resultIcon.classList.remove('penguin-pop');
+                resultIcon.innerHTML = '🍜';
+              }
+              if (resultTitle) resultTitle.textContent = '点击转盘开始';
+              if (resultSubtitle) resultSubtitle.textContent = '让命运帮你选择今天的美食';
+            }
+            // 音效：确保停止滴答
+            AudioManager.stopTicks();
+            if (resetBtn) resetBtn.style.display = 'none';
+          });
+        }
+      })();
+    </script>
+    <script src="js/wheel.js"></script>
+    <script src="js/food.js"></script>
+</body>
+</html>
