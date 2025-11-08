@@ -1,0 +1,1721 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Developer Roadmaps - Tea Garden</title>
+    <meta name="description" content="Developer roadmaps with traditional tea culture theme, providing clear career development paths">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* 深绿清新配色方案 - 自然与现代 */
+            --tea-green: #10b981;
+            --tea-dark: #064e3b;
+            --tea-darker: #022c22;
+            --tea-light: #34d399;
+            --tea-cream: #fefdfb;
+            --tea-brown: #065f46;
+            --tea-gold: #fbbf24;
+            --tea-white: #fefdfb;
+            --tea-card-bg: rgba(255, 255, 255, 0.9);
+            --tea-border: rgba(16, 185, 129, 0.3);
+            --tea-shadow: rgba(0, 0, 0, 0.1);
+            --tea-text-light: #1f2937;
+            --tea-text-secondary: #6b7280;
+        }
+
+        body {
+            font-family: 'KaiTi', 'STKaiti', '楷体', 'Microsoft YaHei', sans-serif;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(16, 185, 129, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(52, 211, 153, 0.06) 0%, transparent 50%),
+                linear-gradient(135deg, 
+                    #fefdfb 0%, 
+                    #f8faf9 30%,
+                    #f0f9f4 60%,
+                    #fefdfb 100%);
+            color: var(--tea-text-light);
+            line-height: 1.8;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* 顶部装饰 */
+        .top-decoration {
+            height: 5px;
+            background: linear-gradient(90deg, 
+                var(--tea-green) 0%, 
+                var(--tea-light) 25%,
+                var(--tea-gold) 50%,
+                var(--tea-light) 75%,
+                var(--tea-green) 100%);
+            box-shadow: 0 2px 10px rgba(16, 185, 129, 0.5);
+            animation: topIn 1.2s ease-out forwards;
+            opacity: 0;
+            position: relative;
+            z-index: 100;
+        }
+
+        /* 导航栏 */
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(15px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 2px solid rgba(16, 185, 129, 0.2);
+            animation: topIn 1.2s ease-out forwards;
+            opacity: 0;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0.4rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, #10b981, #059669);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .logo img {
+            width: 5rem;
+            height: 5rem;
+            object-fit: contain;
+            display: block;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--tea-text-secondary);
+            text-decoration: none;
+            transition: color 0.3s;
+            position: relative;
+            font-size: 1.1rem;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--tea-green);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--tea-green);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* 返回按钮 */
+        .back-btn {
+            background: linear-gradient(135deg, var(--tea-green), var(--tea-light));
+            color: white;
+            padding: 0.65rem 1.5rem;
+            border-radius: 24px;
+            text-decoration: none;
+            font-size: 1.05rem;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: 0 2px 8px rgba(16, 185, 129, 0.3);
+        }
+
+        .back-btn:hover {
+            transform: translateX(-5px);
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4);
+        }
+
+        .back-btn::before {
+            content: '←';
+            font-size: 1.4rem;
+        }
+
+        .mobile-back {
+            display: none;
+        }
+
+        /* 移动端菜单按钮 */
+        .menu-toggle {
+            display: none;
+            background: none;
+            font-size: 1.5rem;
+            color: var(--tea-text-secondary);
+            cursor: pointer;
+        }
+
+        /* 移除固定背景层，改为云雾容器背景 */
+
+        /* Hero区域 - 带云雾散开动画效果 */
+        .hero {
+            position: relative;
+            text-align: center;
+          
+            min-height: 82vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background: transparent;
+            animation: backgroundZoom 1.6s ease-out forwards;
+        }
+
+        /* 渐变叠加层 */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, 
+                rgba(254, 253, 251, 0.45) 0%, 
+                rgba(254, 253, 251, 0.6) 60%,
+                rgba(254, 253, 251, 0.7) 80%,
+                rgba(254, 253, 251, 0.65) 100%);
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 11;
+            margin-top: -8vh;
+        }
+
+        .hero-content h1 {
+            opacity: 0;
+            animation: bottomInText 1.2s ease-out 0.3s forwards;
+        }
+
+        .hero-content p {
+            opacity: 0;
+            animation: bottomInText 1.2s ease-out 0.5s forwards;
+        }
+
+        /* 云雾容器 - 带背景图片 */
+        .mist-wrapper {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 3;
+            pointer-events: none;
+            background: url('./images/mountain-bg.jpg') center center no-repeat;
+            background-size: cover;
+            transition: opacity 0.8s ease-out;
+        }
+
+        /* 第一层云雾 */
+        .mist-layer-1 {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(ellipse at 30% 40%, rgba(255, 255, 255, 0.9) 0%, transparent 50%),
+                radial-gradient(ellipse at 70% 60%, rgba(255, 255, 255, 0.85) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 30%, rgba(240, 248, 255, 0.8) 0%, transparent 60%);
+            animation: disperseMist1 2s ease-out forwards;
+        }
+
+        /* 第二层云雾 */
+        .mist-layer-2 {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(ellipse at 20% 70%, rgba(255, 255, 255, 0.7) 0%, transparent 45%),
+                radial-gradient(ellipse at 80% 30%, rgba(255, 255, 255, 0.75) 0%, transparent 45%),
+                radial-gradient(ellipse at 50% 80%, rgba(248, 250, 252, 0.7) 0%, transparent 50%);
+            animation: disperseMist2 2.5s ease-out 0.3s forwards;
+        }
+
+        /* 云雾散开动画 */
+        @keyframes disperseMist1 {
+            0% {
+                opacity: 1;
+                transform: scale(1);
+            }
+            100% {
+                opacity: 0.3;
+                transform: scale(1.5) translateY(-50px);
+            }
+        }
+
+        @keyframes disperseMist2 {
+            0% {
+                opacity: 1;
+                transform: scale(1);
+            }
+            100% {
+                opacity: 0.3;
+                transform: scale(1.8) translateY(-80px);
+            }
+        }
+
+        /* 页面加载动画 */
+        @keyframes topIn {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes backgroundZoom {
+            from {
+                background-position: top center;
+                background-size: 110% auto;
+            }
+            to {
+                background-position: center 20%;
+                background-size: 100% auto;
+            }
+        }
+
+        @keyframes bottomInText {
+            from {
+                transform: translateY(100px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes bottomIn {
+            from {
+                transform: translateY(100px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes zoomIn {
+            from {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        @keyframes zoomInDecoration {
+            from {
+                transform: scale(0.5);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 0.1;
+            }
+        }
+
+        /* 内容切换动画 */
+        @keyframes fadeOutScale {
+            from {
+                opacity: 1;
+                transform: scale(1);
+            }
+            to {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+        }
+
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* 页面退出动画 */
+        @keyframes pageExit {
+            0% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+        }
+
+        .page-transition {
+            animation: fadeOutScale 0.3s ease-out forwards;
+        }
+
+        .page-transition-in {
+            animation: fadeInScale 0.4s ease-out forwards;
+        }
+
+        /* 卡片动画类 */
+        .card-exit {
+            animation: pageExit 0.3s ease-out forwards;
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 7vw, 5.5rem);
+            background: linear-gradient(135deg, #10b981, #34d399, #059669);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            position: relative;
+            display: inline-block;
+            filter: drop-shadow(0 4px 20px rgba(16, 185, 129, 0.6)) drop-shadow(0 2px 10px rgba(255, 255, 255, 0.8));
+            letter-spacing: 0.08em;
+        }
+
+        .hero h1::before,
+        .hero h1::after {
+            content: '❀';
+            position: absolute;
+            color: var(--tea-gold);
+            font-size: 2rem;
+            filter: drop-shadow(0 2px 8px rgba(251, 191, 36, 0.5));
+        }
+
+        .hero h1::before {
+            left: -3rem;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .hero h1::after {
+            right: -3rem;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .hero p {
+            font-size: clamp(1.3rem, 3vw, 1.7rem);
+            color: var(--tea-dark);
+            max-width: 900px;
+            margin: 0 auto;
+            line-height: 1.8;
+            text-shadow: 0 2px 8px rgb(165, 161, 161), 0 1px 4px rgba(255, 255, 255, 0.9);
+            font-weight: 600;
+            letter-spacing: 0.05em;
+        }
+
+        /* 容器 */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+            position: relative;
+            z-index: 5;
+            background: 
+                linear-gradient(to bottom,
+                    rgba(254, 253, 251, 0.75) 0%,
+                    rgba(254, 253, 251, 0.75) 100%),
+                url('./images/green.jpg') center center no-repeat;
+            background-size: cover;
+            transition: background-position 0.1s ease-out;
+            scroll-margin-top: 6rem;
+        }
+        
+        /* 第一个container上方添加过渡 */
+        .container:first-of-type::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: linear-gradient(to bottom,
+                transparent 0%,
+                rgba(254, 253, 251, 0.3) 50%,
+                rgba(254, 253, 251, 0.75) 100%);
+            z-index: -1;
+        }
+
+        /* 分类标题 */
+        .section-title {
+            text-align: center;
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            background: linear-gradient(135deg, #34d399, #10b981);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 2rem;
+            position: relative;
+            padding-bottom: 1rem;
+            filter: drop-shadow(0 2px 8px rgba(16, 185, 129, 0.4));
+            opacity: 0;
+        }
+
+        .section-title.animate {
+            animation: bottomInText 0.8s ease-out forwards;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, var(--tea-light), var(--tea-green), var(--tea-light), transparent);
+            box-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
+        }
+
+        /* 卡片网格 */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 4rem;
+        }
+
+        /* 卡片样式 */
+        .card {
+            background: var(--tea-card-bg);
+            border: 2px solid rgba(16, 185, 129, 0.2);
+            border-radius: 16px;
+            padding: 1.5rem;
+            text-decoration: none;
+            color: var(--tea-text-light);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, 
+                var(--tea-green), 
+                var(--tea-light),
+                var(--tea-gold));
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 15px 40px rgba(16, 185, 129, 0.25),
+                        0 5px 20px rgba(0, 0, 0, 0.1);
+            border-color: var(--tea-green);
+            background: rgba(255, 255, 255, 1);
+        }
+
+        .card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .card-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--tea-dark);
+        }
+
+        .card-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--tea-green), var(--tea-light));
+            color: var(--tea-dark);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            margin-top: 0.5rem;
+            font-weight: 600;
+        }
+
+        /* 新标签 */
+        .new-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: linear-gradient(135deg, #fbbf24, #f59e0b);
+            color: var(--tea-darker);
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            font-weight: bold;
+            box-shadow: 0 2px 8px rgba(251, 191, 36, 0.4);
+        }
+
+        /* 语言切换按钮 */
+        .language-switcher {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            margin-left: 0.6rem;
+        }
+
+        .lang-btn {
+            background: none;
+            border: 1px solid var(--tea-border);
+            color: var(--tea-text-secondary);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1.05rem;
+            transition: all 0.3s ease;
+            font-family: inherit;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .lang-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: var(--tea-green);
+            transform: translate(-50%, -50%);
+            transition: width 0.4s ease, height 0.4s ease;
+            z-index: -1;
+        }
+
+        .lang-btn:hover {
+            border-color: var(--tea-green);
+            color: var(--tea-green);
+        }
+
+        .lang-btn.active {
+            color: white;
+            border-color: var(--tea-green);
+        }
+
+        .lang-btn.active::before {
+            width: 200%;
+            height: 200%;
+        }
+
+        /* 页脚 */
+        .footer {
+            background: rgba(248, 250, 249, 0.98);
+            color: var(--tea-text-secondary);
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+            border-top: 2px solid rgba(16, 185, 129, 0.2);
+            position: relative;
+            z-index: 5;
+        }
+
+        .footer p {
+            margin: 0.5rem 0;
+        }
+
+        .footer a {
+            color: var(--tea-green);
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 70%;
+                height: 100vh;
+                background: var(--tea-card-bg);
+                flex-direction: column;
+                padding: 5rem 2rem;
+                box-shadow: -5px 0 20px var(--tea-shadow);
+                transition: right 0.3s ease;
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .language-switcher {
+                margin-left: 0;
+                margin-top: 1rem;
+            }
+
+            .back-btn:not(.mobile-back) {
+                display: none;
+            }
+
+            .mobile-back {
+                display: flex;
+                margin-bottom: 1rem;
+                justify-content: center;
+            }
+
+            .lang-btn {
+                padding: 0.3rem 0.6rem;
+                font-size: 0.8rem;
+            }
+
+            .hero {
+                min-height: 70vh;
+                padding: 5rem 2rem;
+            }
+
+            .hero h1::before,
+            .hero h1::after {
+                display: none;
+            }
+
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-container {
+                padding: 1rem;
+            }
+        }
+
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .card-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* 滚动动画 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+        }
+
+        .fade-in.animate {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        /* 茶叶装饰 */
+        .tea-decoration {
+            position: fixed;
+            pointer-events: none;
+            opacity: 0;
+            z-index: 12;
+        }
+
+        .tea-leaf-1 {
+            top: 10%;
+            left: 5%;
+            font-size: 3rem;
+        }
+
+        .tea-leaf-1.animate {
+            animation: zoomInDecoration 1.5s ease-out 0.8s forwards, float 6s ease-in-out 2.3s infinite;
+        }
+
+        .tea-leaf-2 {
+            top: 60%;
+            right: 10%;
+            font-size: 2.5rem;
+        }
+
+        .tea-leaf-2.animate {
+            animation: zoomInDecoration 1.5s ease-out 1s forwards, float 8s ease-in-out 2.5s infinite;
+        }
+
+        /* 第二张图片上升并重合动画 */
+        @keyframes slideUpAndMerge {
+            0% {
+                opacity: 0;
+                transform: translateY(100%);
+            }
+            30% {
+                opacity: 1;
+            }
+            99% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            100% {
+                opacity: 1;
+                transform: none;
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-20px) rotate(10deg);
+            }
+        }
+
+        /* 下拉提示箭头 */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 3rem;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 12;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.3rem;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 1.5s forwards;
+        }
+
+        .scroll-arrow {
+            width: 0;
+            height: 0;
+            border-left: 12px solid transparent;
+            border-right: 12px solid transparent;
+            border-top: 12px solid var(--tea-green);
+            opacity: 0.7;
+            animation: bounce 2s ease-in-out infinite;
+        }
+
+        .scroll-arrow:nth-child(2) {
+            animation-delay: 0.2s;
+            opacity: 0.5;
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+                opacity: 0.7;
+            }
+            50% {
+                transform: translateY(10px);
+                opacity: 0.3;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 顶部装饰线 -->
+    <div class="top-decoration"></div>
+
+    <!-- 茶叶装饰 -->
+    <div class="tea-decoration tea-leaf-1">🍃</div>
+    <div class="tea-decoration tea-leaf-2">🌿</div>
+
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="back-btn" id="backBtn">返回首页</a>
+            <a href="#" class="logo">
+                <img src="./images/bamboo.png" alt="Logo"> 武小喵的数计隐世竹林
+            </a>
+            <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#role-roadmaps">Role-based</a></li>
+                <li><a href="#skill-roadmaps">Skill-based</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#practices">Best Practices</a></li>
+                <li><a href="index.html" class="back-btn mobile-back" id="mobileBackBtn">返回首页</a></li>
+            </ul>
+            <div class="language-switcher">
+                <button class="lang-btn" data-lang="en">EN</button>
+                <button class="lang-btn active" data-lang="zh">中文</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero区域 -->
+    <section class="hero">
+        <!-- 云雾容器 -->
+        <div class="mist-wrapper">
+            <div class="mist-layer-1"></div>
+            <div class="mist-layer-2"></div>
+        </div>
+        
+        <!-- 内容 -->
+        <div class="hero-content">
+            <h1>Developer Roadmaps</h1>
+            <p>Like savoring tea, appreciate the art of technology step by step to master programming</p>
+        </div>
+        
+        <!-- 下拉提示 -->
+        <div class="scroll-indicator">
+            <div class="scroll-arrow"></div>
+            <div class="scroll-arrow"></div>
+        </div>
+    </section>
+
+    <!-- 角色导向路线图 -->
+    <section id="role-roadmaps" class="container">
+        <h2 class="section-title">Role-based Roadmaps</h2>
+        <div class="card-grid">
+            <a href="study_road/frontend/index.html" class="card fade-in" data-key="roles.frontend">
+                <div class="card-title">Frontend</div>
+                <p>Build user interfaces and experiences</p>
+            </a>
+            <a href="study_road/backend/index.html" class="card fade-in" data-key="roles.backend">
+                <div class="card-title">Backend</div>
+                <p>Server-side development and API design</p>
+            </a>
+            <a href="study_road/full-stack/index.html" class="card fade-in" data-key="roles.fullstack">
+                <div class="card-title">Full Stack</div>
+                <p>End-to-end web application development</p>
+            </a>
+            <a href="#" class="card fade-in" data-key="roles.devops">
+                <div class="card-title">DevOps</div>
+                <p>Infrastructure and deployment operations</p>
+            </a>
+            <a href="#" class="card fade-in" data-key="roles.dataAnalyst">
+                <div class="card-title">Data Analyst</div>
+                <p>Data insights and analysis</p>
+            </a>
+            <a href="#" class="card fade-in" data-key="roles.aiEngineer">
+                <div class="card-title">AI Engineer</div>
+                <p>Artificial intelligence application development</p>
+            </a>
+            <a href="#" class="card fade-in" data-key="roles.aiDataScientist">
+                <div class="card-title">AI and Data Scientist</div>
+                <p>AI and data science</p>
+            </a>
+            <a href="#" class="card fade-in" data-key="roles.dataEngineer">
+                <div class="card-title">Data Engineer</div>
+                <p>Data pipelines and infrastructure</p>
+            </a>
+            <a href="#" class="card fade-in" data-key="roles.android">
+                <div class="card-title">Android</div>
+                <p>Android application development</p>
+            </a>
+            <a href="#" class="card fade-in" data-key="roles.machineLearning">
+                <div class="card-title">Machine Learning</div>
+                <p>ML model development and deployment</p>
+            </a>
+            <a href="#" class="card fade-in" data-key="roles.ios">
+                <div class="card-title">iOS</div>
+                <p>iOS application development</p>
+            </a>
+            <a href="#" class="card fade-in" data-key="roles.qa">
+                <div class="card-title">QA</div>
+                <p>Quality assurance and testing</p>
+            </a>
+            <a href="#" class="card fade-in" data-key="roles.architect">
+                <div class="card-title">Software Architect</div>
+                <p>System design and architecture</p>
+            </a>
+            <a href="#" class="card fade-in" data-key="roles.security">
+                <div class="card-title">Cyber Security</div>
+                <p>Security protection and assurance</p>
+            </a>
+            <a href="#" class="card fade-in" data-key="roles.ux">
+                <div class="card-title">UX Design</div>
+                <p>User experience design</p>
+            </a>
+            <a href="#" class="card fade-in" data-key="roles.game">
+                <div class="card-title">Game Developer</div>
+                <p>Game design and development</p>
+            </a>
+            <a href="#" class="card fade-in" data-key="roles.pm">
+                <div class="card-title">Product Manager</div>
+                <p>Product planning and management</p>
+            </a>
+        </div>
+    </section>
+
+    <!-- 技能导向路线图 -->
+    <section id="skill-roadmaps" class="container">
+        <h2 class="section-title">Skill-based Roadmaps</h2>
+        <div class="card-grid">
+            <a href="#" class="card fade-in" data-key="skills.sql">
+                <div class="card-title">SQL</div>
+                <p>Database query language</p>
+            </a>
+            <a href="#" class="card fade-in" data-key="skills.cs">
+                <div class="card-title">Computer Science</div>
+                <p>CS fundamentals</p>
+            </a>
+            <a href="#" class="card fade-in" data-key="skills.react">
+                <div class="card-title">React</div>
+                <p>Frontend UI framework</p>
+            </a>
+            <a href="#" class="card fade-in" data-key="skills.vue">
+                <div class="card-title">Vue</div>
+                <p>Progressive frontend framework</p>
+            </a>
+            <a href="#" class="card fade-in" data-key="skills.angular">
+                <div class="card-title">Angular</div>
+                <p>Enterprise frontend framework</p>
+            </a>
+            <a href="#" class="card fade-in" data-key="skills.javascript">
+                <div class="card-title">JavaScript</div>
+                <p>Web core language</p>
+            </a>
+            <a href="#" class="card fade-in" data-key="skills.typescript">
+                <div class="card-title">TypeScript</div>
+                <p>Type-safe JavaScript</p>
+            </a>
+            <a href="#" class="card fade-in" data-key="skills.nodejs">
+                <div class="card-title">Node.js</div>
+                <p>JS backend runtime</p>
+            </a>
+            <a href="#" class="card fade-in" data-key="skills.python">
+                <div class="card-title">Python</div>
+                <p>General-purpose programming</p>
+            </a>
+            <a href="#" class="card fade-in" data-key="skills.systemDesign">
+                <div class="card-title">System Design</div>
+                <p>Architecture and scalability</p>
+            </a>
+            <a href="#" class="card fade-in" data-key="skills.java">
+                <div class="card-title">Java</div>
+                <p>Enterprise development</p>
+            </a>
+            <a href="#" class="card fade-in" data-key="skills.go">
+                <div class="card-title">Go Roadmap</div>
+                <p>Cloud-native development</p>
+            </a>
+            <a href="#" class="card fade-in" data-key="skills.aspnet">
+                <div class="card-title">ASP.NET Core</div>
+                <p>.NET web framework</p>
+            </a>
+            <a href="#" class="card fade-in" data-key="skills.apiDesign">
+                <div class="card-title">API Design</div>
+                <p>RESTful API design</p>
+            </a>
+            <a href="#" class="card fade-in" data-key="skills.springBoot">
+                <div class="card-title">Spring Boot</div>
+                <p>Java microservices framework</p>
+            </a>
+            <a href="#" class="card fade-in" data-key="skills.flutter">
+                <div class="card-title">Flutter</div>
+                <p>Cross-platform mobile development</p>
+            </a>
+            <a href="#" class="card fade-in" data-key="skills.cpp">
+                <div class="card-title">C++</div>
+                <p>High-performance programming</p>
+            </a>
+            <a href="#" class="card fade-in" data-key="skills.rust">
+                <div class="card-title">Rust</div>
+                <p>System-level programming</p>
+            </a>
+            <a href="#" class="card fade-in" data-key="skills.designArch">
+                <div class="card-title">Design and Architecture</div>
+                <p>Software design patterns</p>
+            </a>
+            <a href="#" class="card fade-in" data-key="skills.graphql">
+                <div class="card-title">GraphQL</div>
+                <p>API query language</p>
+            </a>
+            <a href="#" class="card fade-in" data-key="skills.reactNative">
+                <div class="card-title">React Native</div>
+                <p>Mobile React framework</p>
+            </a>
+            <a href="#" class="card fade-in" data-key="skills.designSystem">
+                <div class="card-title">Design System</div>
+                <p>UI component library design</p>
+            </a>
+            <a href="#" class="card fade-in" data-key="skills.promptEng">
+                <div class="card-title">Prompt Engineering</div>
+                <p>AI prompt optimization</p>
+            </a>
+            <a href="#" class="card fade-in" data-key="skills.mongodb">
+                <div class="card-title">MongoDB</div>
+                <p>NoSQL database</p>
+            </a>
+            <a href="#" class="card fade-in" data-key="skills.linux">
+                <div class="card-title">Linux</div>
+                <p>Operating system fundamentals</p>
+            </a>
+            <a href="#" class="card fade-in" data-key="skills.docker">
+                <div class="card-title">Docker</div>
+                <p>Containerization technology</p>
+            </a>
+            <a href="#" class="card fade-in" data-key="skills.kubernetes">
+                <div class="card-title">Kubernetes</div>
+                <p>Container orchestration</p>
+            </a>
+            <a href="#" class="card fade-in" data-key="skills.aws">
+                <div class="card-title">AWS</div>
+                <p>Cloud service platform</p>
+            </a>
+            <a href="#" class="card fade-in" data-key="skills.terraform">
+                <div class="card-title">Terraform</div>
+                <p>Infrastructure as code</p>
+            </a>
+            <a href="#" class="card fade-in" data-key="skills.dsa">
+                <div class="card-title">Data Structures & Algorithms</div>
+                <p>Programming fundamentals</p>
+            </a>
+            <a href="#" class="card fade-in" data-key="skills.redis">
+                <div class="card-title">Redis</div>
+                <p>In-memory database</p>
+            </a>
+            <a href="#" class="card fade-in" data-key="skills.git">
+                <div class="card-title">Git and GitHub</div>
+                <p>Version control</p>
+            </a>
+            <a href="#" class="card fade-in" data-key="skills.php">
+                <div class="card-title">PHP</div>
+                <p>Server-side scripting</p>
+            </a>
+            <a href="#" class="card fade-in" data-key="skills.cloudflare">
+                <div class="card-title">Cloudflare</div>
+                <p>CDN and security services</p>
+            </a>
+            <a href="#" class="card fade-in" data-key="skills.aiRedTeam">
+                <div class="card-title">AI Red Teaming</div>
+                <p>AI security testing</p>
+            </a>
+            <a href="#" class="card fade-in" data-key="skills.aiAgents">
+                <div class="card-title">AI Agents</div>
+                <p>Intelligent agent development</p>
+            </a>
+            <a href="#" class="card fade-in" data-key="skills.nextjs">
+                <div class="card-title">Next.js</div>
+                <p>React full-stack framework</p>
+            </a>
+            <a href="#" class="card fade-in" data-key="skills.codeReview">
+                <span class="new-badge">New</span>
+                <div class="card-title">Code Review</div>
+                <p>Code review best practices</p>
+            </a>
+            <a href="#" class="card fade-in" data-key="skills.kotlin">
+                <span class="new-badge">New</span>
+                <div class="card-title">Kotlin</div>
+                <p>Modern Android development</p>
+            </a>
+            <a href="#" class="card fade-in" data-key="skills.html">
+                <span class="new-badge">New</span>
+                <div class="card-title">HTML</div>
+                <p>Web structure language</p>
+            </a>
+            <a href="#" class="card fade-in" data-key="skills.css">
+                <span class="new-badge">New</span>
+                <div class="card-title">CSS</div>
+                <p>Web styling design</p>
+            </a>
+        </div>
+    </section>
+
+    <!-- 项目实践 -->
+    <section id="projects" class="container">
+        <h2 class="section-title">Project Ideas</h2>
+        <div class="card-grid">
+            <a href="#" class="card fade-in" data-key="projects.frontend">
+                <div class="card-title">Frontend Projects</div>
+                <p>Hands-on projects to improve frontend skills</p>
+            </a>
+            <a href="#" class="card fade-in" data-key="projects.backend">
+                <div class="card-title">Backend Projects</div>
+                <p>Hands-on projects to improve backend skills</p>
+            </a>
+            <a href="#" class="card fade-in" data-key="projects.devops">
+                <div class="card-title">DevOps Projects</div>
+                <p>Hands-on projects to improve DevOps skills</p>
+            </a>
+        </div>
+    </section>
+
+    <!-- 最佳实践 -->
+    <section id="practices" class="container">
+        <h2 class="section-title">Best Practices</h2>
+        <div class="card-grid">
+            <a href="#" class="card fade-in" data-key="practices.backendPerf">
+                <div class="card-title">Backend Performance</div>
+                <p>Improve backend application performance</p>
+            </a>
+            <a href="#" class="card fade-in" data-key="practices.frontendPerf">
+                <div class="card-title">Frontend Performance</div>
+                <p>Improve frontend loading speed</p>
+            </a>
+            <a href="#" class="card fade-in" data-key="practices.apiSecurity">
+                <div class="card-title">API Security</div>
+                <p>Protect API interface security</p>
+            </a>
+            <a href="#" class="card fade-in" data-key="practices.codeReview">
+                <div class="card-title">Code Reviews</div>
+                <p>Code review standards</p>
+            </a>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <p>WuXiaoMiao's Math & CS Bamboo Grove · Connect through tea, grow through technology</p>
+        <p>© 2025 Developer Roadmaps | <a href="#">About Us</a> | <a href="#">Contact</a></p>
+        <p>Savor tea mindfully, learn technology diligently 🍵</p>
+    </footer>
+
+    <script>
+        // 翻译数据
+        const translations = {
+            en: {
+                logo: "WuXiaoMiao's Math & CS Bamboo Grove",
+                nav: {
+                    roleBased: 'Role-based',
+                    skillBased: 'Skill-based',
+                    projects: 'Projects',
+                    bestPractices: 'Best Practices'
+                },
+                hero: {
+                    title: 'Developer Roadmaps',
+                    subtitle: 'Like savoring tea, appreciate the art of technology step by step to master programming'
+                },
+                sections: {
+                    roleBased: 'Role-based Roadmaps',
+                    skillBased: 'Skill-based Roadmaps',
+                    projects: 'Project Ideas',
+                    bestPractices: 'Best Practices'
+                },
+                footer: {
+                    line1: "WuXiaoMiao's Math & CS Bamboo Grove · Connect through tea, grow through technology",
+                    line2: '© 2025 Developer Roadmaps | ',
+                    about: 'About Us',
+                    contact: 'Contact',
+                    line3: 'Savor tea mindfully, learn technology diligently 🍵'
+                },
+                roles: {
+                    frontend: { title: 'Frontend', desc: 'Build user interfaces and experiences' },
+                    backend: { title: 'Backend', desc: 'Server-side development and API design' },
+                    fullstack: { title: 'Full Stack', desc: 'End-to-end web application development' },
+                    devops: { title: 'DevOps', desc: 'Infrastructure and deployment operations' },
+                    dataAnalyst: { title: 'Data Analyst', desc: 'Data insights and analysis' },
+                    aiEngineer: { title: 'AI Engineer', desc: 'Artificial intelligence application development' },
+                    aiDataScientist: { title: 'AI and Data Scientist', desc: 'AI and data science' },
+                    dataEngineer: { title: 'Data Engineer', desc: 'Data pipelines and infrastructure' },
+                    android: { title: 'Android', desc: 'Android application development' },
+                    machineLearning: { title: 'Machine Learning', desc: 'ML model development and deployment' },
+                    ios: { title: 'iOS', desc: 'iOS application development' },
+                    qa: { title: 'QA', desc: 'Quality assurance and testing' },
+                    architect: { title: 'Software Architect', desc: 'System design and architecture' },
+                    security: { title: 'Cyber Security', desc: 'Security protection and assurance' },
+                    ux: { title: 'UX Design', desc: 'User experience design' },
+                    game: { title: 'Game Developer', desc: 'Game design and development' },
+                    pm: { title: 'Product Manager', desc: 'Product planning and management' }
+                },
+                skills: {
+                    sql: { title: 'SQL', desc: 'Database query language' },
+                    cs: { title: 'Computer Science', desc: 'CS fundamentals' },
+                    react: { title: 'React', desc: 'Frontend UI framework' },
+                    vue: { title: 'Vue', desc: 'Progressive frontend framework' },
+                    angular: { title: 'Angular', desc: 'Enterprise frontend framework' },
+                    javascript: { title: 'JavaScript', desc: 'Web core language' },
+                    typescript: { title: 'TypeScript', desc: 'Type-safe JavaScript' },
+                    nodejs: { title: 'Node.js', desc: 'JS backend runtime' },
+                    python: { title: 'Python', desc: 'General-purpose programming' },
+                    systemDesign: { title: 'System Design', desc: 'Architecture and scalability' },
+                    java: { title: 'Java', desc: 'Enterprise development' },
+                    go: { title: 'Go Roadmap', desc: 'Cloud-native development' },
+                    aspnet: { title: 'ASP.NET Core', desc: '.NET web framework' },
+                    apiDesign: { title: 'API Design', desc: 'RESTful API design' },
+                    springBoot: { title: 'Spring Boot', desc: 'Java microservices framework' },
+                    flutter: { title: 'Flutter', desc: 'Cross-platform mobile development' },
+                    cpp: { title: 'C++', desc: 'High-performance programming' },
+                    rust: { title: 'Rust', desc: 'System-level programming' },
+                    designArch: { title: 'Design and Architecture', desc: 'Software design patterns' },
+                    graphql: { title: 'GraphQL', desc: 'API query language' },
+                    reactNative: { title: 'React Native', desc: 'Mobile React framework' },
+                    designSystem: { title: 'Design System', desc: 'UI component library design' },
+                    promptEng: { title: 'Prompt Engineering', desc: 'AI prompt optimization' },
+                    mongodb: { title: 'MongoDB', desc: 'NoSQL database' },
+                    linux: { title: 'Linux', desc: 'Operating system fundamentals' },
+                    docker: { title: 'Docker', desc: 'Containerization technology' },
+                    kubernetes: { title: 'Kubernetes', desc: 'Container orchestration' },
+                    aws: { title: 'AWS', desc: 'Cloud service platform' },
+                    terraform: { title: 'Terraform', desc: 'Infrastructure as code' },
+                    dsa: { title: 'Data Structures & Algorithms', desc: 'Programming fundamentals' },
+                    redis: { title: 'Redis', desc: 'In-memory database' },
+                    git: { title: 'Git and GitHub', desc: 'Version control' },
+                    php: { title: 'PHP', desc: 'Server-side scripting' },
+                    cloudflare: { title: 'Cloudflare', desc: 'CDN and security services' },
+                    aiRedTeam: { title: 'AI Red Teaming', desc: 'AI security testing' },
+                    aiAgents: { title: 'AI Agents', desc: 'Intelligent agent development' },
+                    nextjs: { title: 'Next.js', desc: 'React full-stack framework' },
+                    codeReview: { title: 'Code Review', desc: 'Code review best practices' },
+                    kotlin: { title: 'Kotlin', desc: 'Modern Android development' },
+                    html: { title: 'HTML', desc: 'Web structure language' },
+                    css: { title: 'CSS', desc: 'Web styling design' }
+                },
+                projects: {
+                    frontend: { title: 'Frontend Projects', desc: 'Hands-on projects to improve frontend skills' },
+                    backend: { title: 'Backend Projects', desc: 'Hands-on projects to improve backend skills' },
+                    devops: { title: 'DevOps Projects', desc: 'Hands-on projects to improve DevOps skills' }
+                },
+                practices: {
+                    backendPerf: { title: 'Backend Performance', desc: 'Improve backend application performance' },
+                    frontendPerf: { title: 'Frontend Performance', desc: 'Improve frontend loading speed' },
+                    apiSecurity: { title: 'API Security', desc: 'Protect API interface security' },
+                    codeReview: { title: 'Code Reviews', desc: 'Code review standards' }
+                }
+            },
+            zh: {
+                logo: '武小喵的数计隐世竹林',
+                nav: {
+                    roleBased: '角色路线',
+                    skillBased: '技能路线',
+                    projects: '项目实践',
+                    bestPractices: '最佳实践'
+                },
+                hero: {
+                    title: '开发者学习路线图',
+                    subtitle: '如品茗般细细品味技术之道，循序渐进，方能领悟编程之妙'
+                },
+                sections: {
+                    roleBased: '角色导向路线图',
+                    skillBased: '技能导向路线图',
+                    projects: '项目实践',
+                    bestPractices: '最佳实践'
+                },
+                footer: {
+                    line1: '武小喵的数计隐世竹林 · 以茶会友，以技相交',
+                    line2: '© 2025 开发者学习路线图 | ',
+                    about: '关于我们',
+                    contact: '联系方式',
+                    line3: '静心品茗，潜心学技 🍵'
+                },
+                roles: {
+                    frontend: { title: '前端开发', desc: '构建用户界面与交互体验' },
+                    backend: { title: '后端开发', desc: '服务端开发与API设计' },
+                    fullstack: { title: '全栈开发', desc: '端到端Web应用开发' },
+                    devops: { title: 'DevOps工程师', desc: '基础设施与部署运维' },
+                    dataAnalyst: { title: '数据分析师', desc: '数据洞察与分析' },
+                    aiEngineer: { title: 'AI工程师', desc: '人工智能应用开发' },
+                    aiDataScientist: { title: '数据科学家', desc: 'AI与数据科学' },
+                    dataEngineer: { title: '数据工程师', desc: '数据管道与基础设施' },
+                    android: { title: 'Android开发', desc: 'Android应用开发' },
+                    machineLearning: { title: '机器学习工程师', desc: 'ML模型开发与部署' },
+                    ios: { title: 'iOS开发', desc: 'iOS应用开发' },
+                    qa: { title: 'QA工程师', desc: '质量保证与测试' },
+                    architect: { title: '软件架构师', desc: '系统设计与架构' },
+                    security: { title: '网络安全专家', desc: '安全防护与保障' },
+                    ux: { title: 'UX设计师', desc: '用户体验设计' },
+                    game: { title: '游戏开发', desc: '游戏设计与开发' },
+                    pm: { title: '产品经理', desc: '产品规划与管理' }
+                },
+                skills: {
+                    sql: { title: 'SQL', desc: '数据库查询语言' },
+                    cs: { title: '计算机科学', desc: 'CS基础知识' },
+                    react: { title: 'React', desc: '前端UI框架' },
+                    vue: { title: 'Vue', desc: '渐进式前端框架' },
+                    angular: { title: 'Angular', desc: '企业级前端框架' },
+                    javascript: { title: 'JavaScript', desc: 'Web核心语言' },
+                    typescript: { title: 'TypeScript', desc: '类型安全的JS' },
+                    nodejs: { title: 'Node.js', desc: 'JS后端运行时' },
+                    python: { title: 'Python', desc: '通用编程语言' },
+                    systemDesign: { title: '系统设计', desc: '架构与扩展性' },
+                    java: { title: 'Java', desc: '企业级开发' },
+                    go: { title: 'Go语言', desc: '云原生开发' },
+                    aspnet: { title: 'ASP.NET Core', desc: '.NET Web框架' },
+                    apiDesign: { title: 'API设计', desc: 'RESTful API设计' },
+                    springBoot: { title: 'Spring Boot', desc: 'Java微服务框架' },
+                    flutter: { title: 'Flutter', desc: '跨平台移动开发' },
+                    cpp: { title: 'C++', desc: '高性能编程' },
+                    rust: { title: 'Rust', desc: '系统级编程' },
+                    designArch: { title: '设计与架构', desc: '软件设计模式' },
+                    graphql: { title: 'GraphQL', desc: 'API查询语言' },
+                    reactNative: { title: 'React Native', desc: '移动端React框架' },
+                    designSystem: { title: '设计系统', desc: 'UI组件库设计' },
+                    promptEng: { title: '提示词工程', desc: 'AI提示词优化' },
+                    mongodb: { title: 'MongoDB', desc: 'NoSQL数据库' },
+                    linux: { title: 'Linux', desc: '操作系统基础' },
+                    docker: { title: 'Docker', desc: '容器化技术' },
+                    kubernetes: { title: 'Kubernetes', desc: '容器编排' },
+                    aws: { title: 'AWS', desc: '云服务平台' },
+                    terraform: { title: 'Terraform', desc: '基础设施即代码' },
+                    dsa: { title: '数据结构与算法', desc: '编程基础' },
+                    redis: { title: 'Redis', desc: '内存数据库' },
+                    git: { title: 'Git & GitHub', desc: '版本控制' },
+                    php: { title: 'PHP', desc: '服务端脚本语言' },
+                    cloudflare: { title: 'Cloudflare', desc: 'CDN与安全服务' },
+                    aiRedTeam: { title: 'AI红队测试', desc: 'AI安全测试' },
+                    aiAgents: { title: 'AI代理', desc: '智能代理开发' },
+                    nextjs: { title: 'Next.js', desc: 'React全栈框架' },
+                    codeReview: { title: '代码审查', desc: 'Code Review最佳实践' },
+                    kotlin: { title: 'Kotlin', desc: '现代Android开发' },
+                    html: { title: 'HTML', desc: '网页结构语言' },
+                    css: { title: 'CSS', desc: '网页样式设计' }
+                },
+                projects: {
+                    frontend: { title: '前端项目', desc: '实战项目提升前端技能' },
+                    backend: { title: '后端项目', desc: '实战项目提升后端技能' },
+                    devops: { title: 'DevOps项目', desc: '实战项目提升运维技能' }
+                },
+                practices: {
+                    backendPerf: { title: '后端性能优化', desc: '提升后端应用性能' },
+                    frontendPerf: { title: '前端性能优化', desc: '提升前端加载速度' },
+                    apiSecurity: { title: 'API安全', desc: '保护API接口安全' },
+                    codeReview: { title: '代码审查', desc: 'Code Review规范' }
+                }
+            }
+        };
+
+        let currentLang = 'zh';
+
+        // 语言切换功能（带动画）
+        function switchLanguage(lang) {
+            if (currentLang === lang) return;
+            
+            currentLang = lang;
+            const t = translations[lang];
+            
+            // 获取所有需要更新的文字元素（不包括容器背景）
+            const textElements = document.querySelectorAll(
+                '.hero-content h1, .hero-content p, ' +
+                '.section-title, .card-title, .card p, ' +
+                '.footer p, .nav-links a, .logo'
+            );
+            
+            // 只对文字添加退出动画，容器背景不动
+            textElements.forEach(el => {
+                el.style.transition = 'opacity 0.3s ease-out, transform 0.3s ease-out';
+                el.style.opacity = '0';
+                el.style.transform = 'scale(0.95)';
+            });
+            
+            // 等待动画完成后更新内容
+            setTimeout(() => {
+                // 更新按钮状态
+                document.querySelectorAll('.lang-btn').forEach(btn => {
+                    btn.classList.toggle('active', btn.dataset.lang === lang);
+                });
+
+                // 更新Logo
+                const logoEl = document.querySelector('.logo');
+                const logoImg = logoEl.querySelector('img');
+                // 清空所有子节点
+                logoEl.innerHTML = '';
+                // 重新添加图片和文本
+                if (logoImg) {
+                    logoEl.appendChild(logoImg);
+                }
+                logoEl.appendChild(document.createTextNode(' ' + t.logo));
+
+                // 更新导航
+                const navLinks = document.querySelectorAll('.nav-links > li > a:not(.back-btn)');
+                navLinks[0].textContent = t.nav.roleBased;
+                navLinks[1].textContent = t.nav.skillBased;
+                navLinks[2].textContent = t.nav.projects;
+                navLinks[3].textContent = t.nav.bestPractices;
+
+                // 更新返回按钮
+                document.getElementById('backBtn').textContent = lang === 'zh' ? '返回首页' : 'Back';
+                document.getElementById('mobileBackBtn').textContent = lang === 'zh' ? '返回首页' : 'Back';
+
+                // 更新Hero
+                document.querySelector('.hero-content h1').textContent = t.hero.title;
+                document.querySelector('.hero-content p').textContent = t.hero.subtitle;
+
+                // 更新章节标题
+                const sectionTitles = document.querySelectorAll('.section-title');
+                sectionTitles[0].textContent = t.sections.roleBased;
+                sectionTitles[1].textContent = t.sections.skillBased;
+                sectionTitles[2].textContent = t.sections.projects;
+                sectionTitles[3].textContent = t.sections.bestPractices;
+
+                // 更新页脚
+                const footerPs = document.querySelectorAll('.footer p');
+                footerPs[0].textContent = t.footer.line1;
+                footerPs[1].innerHTML = `${t.footer.line2}<a href="#">${t.footer.about}</a> | <a href="#">${t.footer.contact}</a>`;
+                footerPs[2].textContent = t.footer.line3;
+
+                // 更新所有带data-key的卡片
+                document.querySelectorAll('[data-key]').forEach(card => {
+                    const key = card.dataset.key;
+                    const keys = key.split('.');
+                    let translation = t;
+                    
+                    // 遍历嵌套的键
+                    for (const k of keys) {
+                        translation = translation[k];
+                    }
+                    
+                    if (translation) {
+                        const titleEl = card.querySelector('.card-title');
+                        const descEl = card.querySelector('p');
+                        if (titleEl) titleEl.textContent = translation.title;
+                        if (descEl) descEl.textContent = translation.desc;
+                    }
+                });
+
+                // 文字淡入动画
+                textElements.forEach(el => {
+                    el.style.opacity = '1';
+                    el.style.transform = 'scale(1)';
+                });
+                
+                // 清理样式
+                setTimeout(() => {
+                    textElements.forEach(el => {
+                        el.style.transition = '';
+                        el.style.transform = '';
+                    });
+                }, 400);
+            }, 300);
+        }
+
+        // 绑定语言切换按钮
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                switchLanguage(btn.dataset.lang);
+            });
+        });
+
+        // 初始化为中文（页面加载时无动画直接显示中文）
+        function initLanguage() {
+            const t = translations['zh'];
+            
+            // 更新Logo - 仅更新文本，保留图片
+            const logoEl = document.querySelector('.logo');
+            const logoImg = logoEl.querySelector('img');
+            // 清空所有内容
+            logoEl.innerHTML = '';
+            // 重新添加图片和一个文本节点
+            if (logoImg) {
+                logoEl.appendChild(logoImg);
+            }
+            logoEl.appendChild(document.createTextNode(' ' + t.logo));
+            
+            // 更新导航
+            const navLinks = document.querySelectorAll('.nav-links > li > a:not(.back-btn)');
+            navLinks[0].textContent = t.nav.roleBased;
+            navLinks[1].textContent = t.nav.skillBased;
+            navLinks[2].textContent = t.nav.projects;
+            navLinks[3].textContent = t.nav.bestPractices;
+            
+            // 更新返回按钮
+            document.getElementById('backBtn').textContent = '返回首页';
+            document.getElementById('mobileBackBtn').textContent = '返回首页';
+            
+            // 更新Hero
+            document.querySelector('.hero-content h1').textContent = t.hero.title;
+            document.querySelector('.hero-content p').textContent = t.hero.subtitle;
+            
+            // 更新章节标题
+            const sectionTitles = document.querySelectorAll('.section-title');
+            sectionTitles[0].textContent = t.sections.roleBased;
+            sectionTitles[1].textContent = t.sections.skillBased;
+            sectionTitles[2].textContent = t.sections.projects;
+            sectionTitles[3].textContent = t.sections.bestPractices;
+            
+            // 更新页脚
+            const footerPs = document.querySelectorAll('.footer p');
+            footerPs[0].textContent = t.footer.line1;
+            footerPs[1].innerHTML = `${t.footer.line2}<a href="#">${t.footer.about}</a> | <a href="#">${t.footer.contact}</a>`;
+            footerPs[2].textContent = t.footer.line3;
+            
+            // 更新所有带data-key的卡片
+            document.querySelectorAll('[data-key]').forEach(card => {
+                const key = card.dataset.key;
+                const keys = key.split('.');
+                let translation = t;
+                
+                for (const k of keys) {
+                    translation = translation[k];
+                }
+                
+                if (translation) {
+                    const titleEl = card.querySelector('.card-title');
+                    const descEl = card.querySelector('p');
+                    if (titleEl) titleEl.textContent = translation.title;
+                    if (descEl) descEl.textContent = translation.desc;
+                }
+            });
+        }
+        
+        // 页面加载时初始化中文
+        initLanguage();
+
+        // 页面退出动画（返回按钮）
+        function pageExitAnimation(e) {
+            e.preventDefault();
+            const targetUrl = e.currentTarget.href;
+            
+            // 添加退出动画到所有内容
+            document.querySelector('.top-decoration').style.animation = 'topIn 0.6s ease-out reverse forwards';
+            document.querySelector('.navbar').style.animation = 'topIn 0.6s ease-out reverse forwards';
+            
+            // 云雾容器背景渐隐
+            const mistWrapper = document.querySelector('.mist-wrapper');
+            if (mistWrapper) {
+                mistWrapper.style.opacity = '0';
+            }
+            
+            const heroContent = document.querySelector('.hero-content');
+            heroContent.style.animation = 'bottomInText 0.6s ease-out reverse forwards';
+            
+            const containers = document.querySelectorAll('.container');
+            containers.forEach((c, index) => {
+                c.style.animation = `pageExit 0.5s ease-out ${index * 0.1}s forwards`;
+            });
+            
+            document.querySelector('.footer').style.animation = 'pageExit 0.5s ease-out 0.3s forwards';
+            
+            // 茶叶装饰逆向动画
+            document.querySelectorAll('.tea-decoration').forEach(el => {
+                el.style.animation = 'zoomInDecoration 0.8s ease-out reverse forwards';
+            });
+            
+            // 动画完成后跳转
+            setTimeout(() => {
+                window.location.href = targetUrl;
+            }, 800);
+        }
+
+        // 绑定返回按钮
+        document.querySelectorAll('.back-btn').forEach(btn => {
+            btn.addEventListener('click', pageExitAnimation);
+        });
+
+        // 移动端菜单切换
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+
+        // 点击导航链接后关闭菜单
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('navLinks').classList.remove('active');
+            });
+        });
+
+        // 滚动动画观察器
+        const observerOptions = {
+            threshold: 0.15,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                    // 只触发一次动画
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // 页面加载时立即触发茶叶装饰动画
+        document.querySelectorAll('.tea-decoration').forEach(el => {
+            setTimeout(() => {
+                el.classList.add('animate');
+            }, 100);
+        });
+
+        // 鼠标移动视差效果 - 容器背景只上下移动
+        const containers = document.querySelectorAll('.container');
+        let mouseY = 0;
+        let currentY = 0;
+        let animationFrameId = null;
+
+        function updateBackgroundPosition() {
+            // 平滑过渡到目标位置
+            currentY += (mouseY - currentY) * 0.1;
+
+            containers.forEach(container => {
+                // 计算背景偏移（只垂直方向，范围 -30px 到 30px）
+                const yOffset = currentY * 30;
+                container.style.backgroundPosition = `50% calc(50% + ${yOffset}px)`;
+            });
+
+            animationFrameId = requestAnimationFrame(updateBackgroundPosition);
+        }
+
+        document.addEventListener('mousemove', (e) => {
+            // 将鼠标垂直位置转换为 -1 到 1 的范围
+            mouseY = (e.clientY / window.innerHeight) * 2 - 1;
+
+            if (!animationFrameId) {
+                animationFrameId = requestAnimationFrame(updateBackgroundPosition);
+            }
+        });
+
+        // 启动动画循环
+        updateBackgroundPosition();
+
+        // 观察所有需要动画的元素
+        document.querySelectorAll('.section-title, .card').forEach((el, index) => {
+            observer.observe(el);
+            // 为卡片添加延迟效果
+            if (el.classList.contains('card')) {
+                el.style.animationDelay = `${(index % 12) * 0.05}s`;
+            }
+        });
+
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                // 忽略只有 # 的链接
+                if (href === '#' || href.length <= 1) {
+                    return;
+                }
+                e.preventDefault();
+                const target = document.querySelector(href);
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
