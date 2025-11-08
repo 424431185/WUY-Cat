@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>武小喵 - 武夷学院AI助手</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- 顶部导航 -->
+    <header class="header">
+        <div class="logo">
+            <span class="logo-icon">🍃</span>
+            <span class="logo-text">武小喵</span>
+        </div>
+        <nav class="nav">
+            <a href="tea-roadmap.html" class="nav-link">计算机学习路线</a>
+            <a href="WUY-school.html" class="nav-link">学校信息</a>
+            <a href="zhuzi.html" class="nav-link">朱子文化</a>
+            <a href="https://www.720yun.com/t/6432dxi6jci?scene_id=1205151" class="nav-link" target="_blank" rel="noopener noreferrer">新生导览</a>
+
+        </nav>
+        <div class="user-info">
+            <span class="user-avatar">👤</span>
+        </div>
+    </header>
+
+    <!-- 主内容区 -->
+    <main class="main">
+        <h1 class="page-title">武小喵，用 AI 重塑校园生活</h1>
+        
+        <!-- 中心卡片 -->
+        <div class="center-card">
+            <!-- 小猫角色 -->
+            <div class="cat-container">
+                <img src="assets/images/小猫.png" alt="武小喵" class="cat-image">
+                <!-- 眼珠层 -->
+                <div class="eyes-layer">
+                    <!-- 左边小猫的眼睛 -->
+                    <div class="cat-eyes cat-1-eyes">
+                        <div class="eye-pupil pupil-1-left"></div>
+                        <div class="eye-pupil pupil-1-right"></div>
+                    </div>
+                    <!-- 中间小猫的眼睛 -->
+                    <div class="cat-eyes cat-2-eyes">
+                        <div class="eye-pupil pupil-2-left"></div>
+                        <div class="eye-pupil pupil-2-right"></div>
+                    </div>
+                    <!-- 右边小猫的眼睛 -->
+                    <div class="cat-eyes cat-3-eyes">
+                        <div class="eye-pupil pupil-3-left"></div>
+                        <div class="eye-pupil pupil-3-right"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 卡片标题 -->
+            <h2 class="card-title">武小喵空间</h2>
+            <p class="card-desc">许诺各项服务能助力「通用与习惯」，各行各业的「效能专家」，在你身边</p>
+
+            <!-- 开始按钮 -->
+            <div class="start-button-container">
+                <button class="btn btn-start">开始</button>
+            </div>
+
+            <!-- 四个功能按钮（留白） -->
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">📱</div>
+                    <div class="feature-label">AR校园导览</div>
+                    <div class="feature-title">沉浸式校园探索体验</div>
+                    <p class="feature-desc">通过增强现实技术，实时叠加校园建筑信息、历史故事和导航路线，让新生轻松探索校园每个角落...</p>
+                </div>
+                <div class="feature-item" onclick="location.href='food.html#wheel'" role="link" tabindex="0" aria-label="打开今天吃什么转盘" style="cursor: pointer;">
+                    <div class="feature-icon">🍽️</div>
+                    <div class="feature-label">校园餐饮转盘</div>
+                    <div class="feature-title">今天吃什么好呢</div>
+                    <p class="feature-desc">随机推荐校园食堂美食，解决选择困难症。涵盖各食堂特色菜品、营养搭配建议，让每一餐都充满惊喜...</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🎨</div>
+                    <div class="feature-label">AI 设计</div>
+                    <div class="feature-title">主题活动海报设计</div>
+                    <p class="feature-desc">做一个活动海报，内容：汇总武夷山特色景点及其背后文化内涵，梳理游览路线与特色...</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🔧</div>
+                    <div class="feature-label">AI 网站开发工具</div>
+                    <div class="feature-title">图片主色提取工具</div>
+                    <p class="feature-desc">开发一个在线图片分析器，提供主色提取功能，主要用于设计师快速获取配色方案...</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- 茶叶飘落容器 -->
+    <div class="tea-leaves"></div>
+
+    <script src="js/indexView.js"></script>
+    <script type="text/javascript" src="https://robot.chaoxing.com/sdk/CxRobotSdkJs.js"></script>
+    <script src="js/agent.js"></script>
+</body>
+</html>
