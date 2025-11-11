@@ -1,0 +1,44 @@
+:root{
+  --bg:#f7fafc;
+  --card:#ffffff;
+  --accent:#4f46e5;
+  --accent-2:#06b6d4;
+  --text:#0f172a;
+  --muted:#6b7280;
+  --yellow:#fde68a;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font:14px/1.45 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,"Apple Color Emoji","Segoe UI Emoji";
+}
+.header{
+  position:sticky;top:0;z-index:5;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:14px 20px;
+  background:linear-gradient(180deg,#fff,rgba(255,255,255,.92));
+  border-bottom:1px solid #e5e7eb;
+}
+.title{font-weight:700;letter-spacing:.2px}
+.subtitle{color:var(--muted)}
+
+main{padding:16px}
+.tree{width:100%;min-height:80vh;background:transparent}
+
+/* Treant overrides for a clean look */
+.Treant > .node{ padding:8px 12px; border-radius:10px; border:1px solid #e5e7eb; background:var(--card); box-shadow:0 1px 2px rgba(16,24,40,.06)}
+.Treant > .node.root{ background:linear-gradient(135deg,#eef2ff,#e0f2fe); border-color:#c7d2fe }
+.Treant > .node.yellow{ background:#fff7d6; border-color:#fde68a }
+.Treant > .node.small{ font-size:12px }
+.Treant > .node.brown{ background:#f6f3ee; border-color:#d6c7b2 }
+.Treant > .node:hover{ box-shadow:0 2px 6px rgba(16,24,40,.12) }
+.Treant .collapse-switch{ width:10px; height:10px; border-radius:50%; background:var(--accent); box-shadow:0 0 0 2px #fff;}
+.Treant .connector{ stroke:#cbd5e1 }
+.Treant .connector.endpoint{ fill:#cbd5e1 }
+
+/* Smooth pan scroll for wide trees */
+body, .tree{ overflow:auto; scroll-behavior:smooth }

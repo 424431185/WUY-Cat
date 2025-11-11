@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>machine-learning 学习路线</title>
+  <link rel="stylesheet" href="../../treant-js-master/Treant.css" />
+  <link rel="stylesheet" href="./roadmap.css" />
+</head>
+<body>
+  <section class="hero reveal">
+    <div class="hero-content">
+      <h1 class="hero-title">机器学习 学习指南</h1>
+      <div class="cards">
+        <button class="card-btn" data-stage="1">阶段一<br>数学与编程基础</button>
+        <button class="card-btn" data-stage="2">阶段二<br>数据工程与传统机器学习</button>
+        <button class="card-btn" data-stage="3">阶段三<br>模型评估与效果提升</button>
+        <button class="card-btn" data-stage="4">阶段四<br>深度学习与 MLOps 上线</button>
+        <button class="card-btn" data-stage="5">阶段五<br>职业化与研究进阶</button>
+      </div>
+      
+      <main>
+        <section id="stage-1" class="stage" style="display:none;">
+          <div id="tree-1" class="tree"></div>
+        </section>
+        <section id="stage-2" class="stage" style="display:none;">
+          <div id="tree-2" class="tree"></div>
+        </section>
+        <section id="stage-3" class="stage" style="display:none;">
+          <div id="tree-3" class="tree"></div>
+        </section>
+        <section id="stage-4" class="stage" style="display:none;">
+          <div id="tree-4" class="tree"></div>
+        </section>
+        <section id="stage-5" class="stage" style="display:none;">
+          <div id="tree-5" class="tree"></div>
+        </section>
+      </main>
+    </div>
+  </section>
+
+  <section class="faq reveal">
+    <h2>常见问题解答（FAQ）</h2>
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">机器学习工程师是一个好的职业吗？</button>
+      <div class="faq-a">是。数据智能在各行业规模化应用，成长路径清晰（算法/平台/应用/科研），横向可转数据科学、数据工程、平台工程，纵向有技术专家与管理路线，兼具技术挑战与业务价值。</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">机器学习工程师的主要职责是什么？</button>
+      <div class="faq-a">围绕“数据→特征→模型→上线→监控→迭代”的闭环：数据获取与清洗、特征工程、算法选择与训练、评估与 A/B 实验、服务化部署与监控、效果复盘与持续改进。</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">机器学习与数据工程/数据科学有什么区别？</button>
+      <div class="faq-a">数据工程侧重数据管道与平台（采集、存储、计算），数据科学侧重探索分析与商业洞察，机器学习工程关注建模、上线与效果优化。三者协作完成稳定的数据→价值链路。</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">如何系统学习并转入机器学习岗位？</button>
+      <div class="faq-a">
+        <p>遵循“数学+编程+数据项目”的路径：</p>
+        <ol>
+          <li><strong>数学与概率</strong>：线代/微积分/概率统计/信息论/优化。</li>
+          <li><strong>编程与工具</strong>：Python、NumPy/Pandas、可视化、Jupyter、Git。</li>
+          <li><strong>实践</strong>：从 EDA 入手→传统 ML→DL，小而完整的端到端项目与复盘。</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">如何准备机器学习岗位面试（技术+行为）？</button>
+      <div class="faq-a">
+        <ol>
+          <li><strong>技术</strong>：算法与指标、特征工程、验证策略、错误分析、工程化。</li>
+          <li><strong>项目</strong>：问题定义→数据→特征→模型→上线→监控，指标与收益量化。</li>
+          <li><strong>行为</strong>：需求澄清、实验设计、跨团队协作与影响力，用 STAR 复盘。</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">需要学完路线图上的所有内容吗？</button>
+      <div class="faq-a">不需要。先打牢“数学+编程+数据基础”，选择细分方向（传统ML/推荐/NLP/CV/时序等）深耕，边学边做项目与复盘，形成可复现与可量化的成果即可。</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">成为合格机器学习工程师需要多长时间？</button>
+      <div class="faq-a">
+        <ul>
+          <li><strong>入门（3–6个月）</strong>：完成1–2个完整 EDA/传统ML 项目。</li>
+          <li><strong>中级（6–18个月）</strong>：可独立完成建模与评估，具备实验设计与迭代能力。</li>
+          <li><strong>高级（2–5年）</strong>：复杂业务建模、MLOps 上线与效果闭环、技术影响力。</li>
+        </ul>
+        <p><strong>关键因素</strong>：数据质量与特征、实验设计、工程化、与业务结合。</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">模型效果提升的一般路径是什么？</button>
+      <div class="faq-a">数据清洗与样本治理 → 特征改进与选择 → 正则化与模型切换/集成 → 验证策略与超参优化 → 不平衡处理与阈值调优 → 线上 A/B 与监控闭环。</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">数据隐私与合规需要注意什么？</button>
+      <div class="faq-a">最小化采集与目的限制、脱敏与匿名化、权限与审计、数据生命周期管理；遵循地区法规与公司策略（如 GDPR/网络安全法），对敏感特征进行合规评估与替代。</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">作品集应该包含什么？</button>
+      <div class="faq-a">问题定义与业务目标、数据与特征方案、模型与指标（离线/在线）、可复现仓库（代码/环境/数据说明）、可解释性与错误分析、上线与监控、复盘与下一步计划。</div>
+    </div>
+  </section>
+
+  <script src="../../treant-js-master/vendor/raphael.js"></script>
+  <script src="../../treant-js-master/Treant.js"></script>
+  <script src="./machine-learning.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function(){
+      if (window.RenderFrontendRoadmap) window.RenderFrontendRoadmap();
+      if (window.EnhanceFrontendPage) window.EnhanceFrontendPage();
+    });
+  </script>
+</body>
+</html>

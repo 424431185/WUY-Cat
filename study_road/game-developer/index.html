@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Game Developer 学习路线</title>
+  <link rel="stylesheet" href="../../treant-js-master/Treant.css" />
+  <link rel="stylesheet" href="./roadmap.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="title">Game Developer 学习路线</div>
+    <div class="subtitle">点击节点从左往右逐层展开</div>
+  </header>
+  <main>
+    <div id="tree" class="tree"></div>
+  </main>
+
+  <script src="../../treant-js-master/vendor/raphael.js"></script>
+  <script src="../../treant-js-master/Treant.js"></script>
+  <script src="./game-developer.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function(){
+      new Treant(window.TreeData);
+    });
+  </script>
+</body>
+</html>
